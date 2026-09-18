@@ -1,8 +1,18 @@
 "use client";
 
+import Image from "next/image";
 import { useScrollReveal } from "@/hooks/use-scroll-reveal";
 import { useT } from "@/lib/i18n/context";
-import { ProductPlaceholder } from "@/components/product-placeholder";
+
+/**
+ * Una foto por argumento, en el mismo orden que `t.porQue.items`: el material,
+ * el diseño y el trabajo a medida.
+ */
+const fotos = [
+  "/images/porque-material.jpg",
+  "/images/porque-diseno.jpg",
+  "/images/porque-medida.jpg",
+];
 
 export function ProductFeaturesSection() {
   const { ref: sectionRef, isVisible } = useScrollReveal<HTMLElement>();
@@ -59,7 +69,12 @@ export function ProductFeaturesSection() {
                   index % 2 === 1 ? "md:order-1" : ""
                 }`}
               >
-                <ProductPlaceholder />
+                <Image
+                  src={fotos[index]}
+                  alt={item.titulo}
+                  fill
+                  className="object-cover"
+                />
               </div>
             </div>
           ))}

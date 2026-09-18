@@ -1,9 +1,17 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { useScrollReveal } from "@/hooks/use-scroll-reveal";
 import { useT } from "@/lib/i18n/context";
-import { ProductPlaceholder } from "@/components/product-placeholder";
+
+/** Una foto por leyenda, en el mismo orden que `t.taller.capturas`. */
+const fotos = [
+  "/images/galeria-escritorio.jpg",
+  "/images/galeria-casa.jpg",
+  "/images/galeria-regalo.jpg",
+  "/images/galeria-medida.jpg",
+];
 
 export function LifestyleGallerySection() {
   const { ref: sectionRef, isVisible } = useScrollReveal<HTMLElement>();
@@ -76,7 +84,17 @@ export function LifestyleGallerySection() {
                   aspectRatio: "3/4",
                 }}
               >
-                <ProductPlaceholder etiqueta={caption} />
+                <Image
+                  src={fotos[index]}
+                  alt={caption}
+                  fill
+                  className="object-cover transition-transform duration-700 group-hover:scale-105"
+                />
+                {/* Degradado para que el texto se lea sobre cualquier foto */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
+                <p className="absolute bottom-0 left-0 right-0 p-6 font-display text-white text-2xl">
+                  {caption}
+                </p>
               </div>
             ))}
           </div>

@@ -3,11 +3,14 @@
  *
  * Los datos son verosímiles pero inventados: sirven para entregar la web con
  * el catálogo lleno y después se borran o editan desde el panel (fase 2).
- * Ninguna foto es de terceros — las piezas sin `imagen` caen en
- * <ProductPlaceholder />, que dibuja una figura propia según la categoría.
  *
- * Para cargar una foto real: dejarla en `public/images/` y poner la ruta en
- * `imagen`.
+ * Ninguna pieza tiene foto propia todavia, asi que `imagen` queda en `null` y
+ * la tarjeta cae en <ProductPlaceholder />, que dibuja una silueta de capas
+ * segun la categoria. Los bancos de imagenes no tienen fotos de piezas
+ * impresas que coincidan con estos productos, y una foto de un objeto comun
+ * mentiria sobre que es la pieza.
+ *
+ * Para cambiar una foto: dejarla en `public/images/` y poner la ruta acá.
  */
 
 export type CategoriaId =

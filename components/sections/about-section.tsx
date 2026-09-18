@@ -1,8 +1,8 @@
 "use client";
 
+import Image from "next/image";
 import { useScrollReveal } from "@/hooks/use-scroll-reveal";
 import { useT } from "@/lib/i18n/context";
-import { ProductPlaceholder } from "@/components/product-placeholder";
 
 export function AboutSection() {
   const { ref, isVisible } = useScrollReveal<HTMLElement>({ threshold: 0.2 });
@@ -43,7 +43,12 @@ export function AboutSection() {
             }`}
           >
             <div className="aspect-[4/3] relative overflow-hidden rounded-3xl bg-[var(--yaku-surface)]">
-              <ProductPlaceholder />
+              <Image
+                src="/images/sobre-taller.jpg"
+                alt={t.sobre.titulo}
+                fill
+                className="object-cover"
+              />
             </div>
           </div>
         </div>

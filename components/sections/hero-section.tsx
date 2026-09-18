@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Image from "next/image";
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import { useT } from "@/lib/i18n/context";
@@ -68,29 +69,32 @@ export function HeroSection() {
             borderRadius: `${borderRadius}px`,
           }}
         >
-          {/* Fondo de marca. Acá va el video del taller cuando esté filmado:
-              reemplazar este div por un <video src="/videos/…" autoPlay loop
-              muted playsInline className="absolute inset-0 w-full h-full
-              object-cover" />. */}
+          {/* Foto del taller. Cuando haya video propio, reemplazar este bloque
+              por un <video src="/videos/…" autoPlay loop muted playsInline
+              className="absolute inset-0 w-full h-full object-cover" />. */}
           <div
             className={`absolute inset-0 transition-all duration-1000 ${
               isVisible ? "scale-100 opacity-100" : "scale-105 opacity-0"
             }`}
-            style={{
-              background:
-                "radial-gradient(120% 90% at 20% 15%, var(--yaku-violet) 0%, var(--yaku-violet-deep) 38%, var(--yaku-black) 78%)",
-            }}
           >
-            {/* Capas: la textura de una pieza recién impresa. */}
+            <Image
+              src="/images/hero-taller.jpg"
+              alt=""
+              fill
+              priority
+              className="object-cover"
+            />
+            {/* Tinte de marca + oscurecido, para que el texto blanco se lea */}
             <div
-              className="absolute inset-0 opacity-[0.07] mix-blend-screen"
+              className="absolute inset-0 mix-blend-multiply"
               style={{
-                backgroundImage:
-                  "repeating-linear-gradient(0deg, transparent 0 9px, rgba(255,255,255,0.5) 9px 10px)",
+                background:
+                  "radial-gradient(120% 90% at 20% 15%, var(--yaku-violet) 0%, var(--yaku-violet-deep) 45%, var(--yaku-black) 85%)",
               }}
             />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-black/20" />
             <div
-              className="absolute -right-24 -bottom-24 w-[520px] h-[520px] rounded-full blur-3xl opacity-40"
+              className="absolute -right-24 -bottom-24 w-[520px] h-[520px] rounded-full blur-3xl opacity-30"
               style={{ background: "var(--yaku-magenta)" }}
             />
           </div>

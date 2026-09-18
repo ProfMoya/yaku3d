@@ -44,7 +44,7 @@ export function EditorialSection() {
         ref.current = node;
         sectionRef.current = node;
       }}
-      className="relative bg-[var(--yaku-cream)]"
+      className="relative bg-[var(--yaku-bg)]"
     >
       <div className="relative w-full h-screen min-h-[600px] overflow-hidden">
         {/* Fondo de marca con el mismo zoom que tenía la foto */}

@@ -12,13 +12,13 @@ export function ProductFeaturesSection() {
     <section
       id="porque"
       ref={sectionRef}
-      className="py-24 px-6 md:px-12 lg:px-24 bg-[var(--yaku-cream)]"
+      className="py-24 px-6 md:px-12 lg:px-24 bg-[var(--yaku-bg)]"
     >
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="mb-20 text-center">
           <h2
-            className={`font-display text-4xl md:text-5xl lg:text-6xl mb-6 text-[var(--yaku-black)] transition-all duration-1000 ${
+            className={`font-display text-4xl md:text-5xl lg:text-6xl mb-6 text-[var(--yaku-text)] transition-all duration-1000 ${
               isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
             }`}
           >
@@ -45,7 +45,7 @@ export function ProductFeaturesSection() {
             >
               {/* Texto: izquierda en los pares, derecha en los impares */}
               <div className={index % 2 === 1 ? "md:order-2" : ""}>
-                <h3 className="font-display text-3xl md:text-4xl mb-6 text-[var(--yaku-black)]">
+                <h3 className="font-display text-3xl md:text-4xl mb-6 text-[var(--yaku-text)]">
                   {item.titulo}
                 </h3>
                 <p className="text-[var(--yaku-muted)] text-lg leading-relaxed">
@@ -55,7 +55,7 @@ export function ProductFeaturesSection() {
 
               {/* Imagen */}
               <div
-                className={`aspect-[3/2] relative overflow-hidden rounded-3xl bg-[var(--yaku-cream-deep)] ${
+                className={`aspect-[3/2] relative overflow-hidden rounded-3xl bg-[var(--yaku-surface)] ${
                   index % 2 === 1 ? "md:order-1" : ""
                 }`}
               >

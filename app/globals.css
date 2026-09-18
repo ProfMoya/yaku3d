@@ -11,30 +11,41 @@
   --yaku-magenta: #DB17E8;
   --yaku-cream: #F2ECEB;
 
-  /* Derivados: superficies y texto secundario sobre crema.
-     --yaku-muted llega a 4.87:1 sobre --yaku-cream, apto para texto chico. */
-  --yaku-cream-deep: #E6DEDC;
-  --yaku-line: #D8CFCD;
-  --yaku-muted: #6B6472;
+  /* Tema oscuro. Los tres niveles de superficie llevan una pizca de violeta
+     para que el negro no se vea muerto al lado de los acentos. */
+  --yaku-bg: #0B0910;
+  --yaku-surface: #151020;
+  --yaku-surface-2: #1F1733;
+  --yaku-line: #2E2444;
 
-  --background: #F2ECEB;
-  --foreground: #000000;
-  --card: #FFFFFF;
-  --card-foreground: #000000;
-  --popover: #FFFFFF;
-  --popover-foreground: #000000;
+  /* Texto. Contrastes medidos sobre --yaku-bg:
+       --yaku-text        16.9:1  (cuerpo y títulos)
+       --yaku-muted        6.8:1  (texto secundario)
+       --yaku-violet-soft  7.0:1  (links; el violeta pleno da 3.8:1 y solo
+                                   sirve para fondos o texto grande)
+       --yaku-magenta      5.0:1  (sobre oscuro sí se puede usar como texto) */
+  --yaku-text: #F2ECEB;
+  --yaku-muted: #9B93AD;
+  --yaku-violet-soft: #9A8AF9;
+
+  --background: #0B0910;
+  --foreground: #F2ECEB;
+  --card: #151020;
+  --card-foreground: #F2ECEB;
+  --popover: #151020;
+  --popover-foreground: #F2ECEB;
   --primary: #6650F2;
   --primary-foreground: #FFFFFF;
-  --secondary: #E6DEDC;
-  --secondary-foreground: #000000;
-  --muted: #E6DEDC;
-  --muted-foreground: #6B6472;
+  --secondary: #1F1733;
+  --secondary-foreground: #F2ECEB;
+  --muted: #1F1733;
+  --muted-foreground: #9B93AD;
   --accent: #DB17E8;
   --accent-foreground: #000000;
-  --destructive: #DC2626;
-  --destructive-foreground: #FFFFFF;
-  --border: #D8CFCD;
-  --input: #D8CFCD;
+  --destructive: #F87171;
+  --destructive-foreground: #0B0910;
+  --border: #2E2444;
+  --input: #2E2444;
   --ring: #6650F2;
   --radius: 9999px;
 
@@ -115,12 +126,16 @@
   --color-ring: var(--ring);
   --color-yaku-black: var(--yaku-black);
   --color-yaku-violet: var(--yaku-violet);
+  --color-yaku-violet-soft: var(--yaku-violet-soft);
   --color-yaku-violet-deep: var(--yaku-violet-deep);
   --color-yaku-magenta: var(--yaku-magenta);
   --color-yaku-cream: var(--yaku-cream);
-  --color-yaku-cream-deep: var(--yaku-cream-deep);
+  --color-yaku-bg: var(--yaku-bg);
+  --color-yaku-surface: var(--yaku-surface);
+  --color-yaku-surface-2: var(--yaku-surface-2);
   --color-yaku-line: var(--yaku-line);
   --color-yaku-muted: var(--yaku-muted);
+  --color-yaku-text: var(--yaku-text);
   --color-chart-1: var(--chart-1);
   --color-chart-2: var(--chart-2);
   --color-chart-3: var(--chart-3);
@@ -152,6 +167,12 @@
     background-color: var(--yaku-magenta);
     color: var(--yaku-black);
   }
+
+  /* Tema oscuro fijo: le avisa al navegador que pinte los controles nativos
+     (scrollbars, autofill, date pickers) en oscuro. */
+  html {
+    color-scheme: dark;
+  }
 }
 
 /* Smooth scrolling */
@@ -165,7 +186,7 @@ html {
 }
 
 ::-webkit-scrollbar-track {
-  background: var(--yaku-cream);
+  background: var(--yaku-bg);
 }
 
 ::-webkit-scrollbar-thumb {

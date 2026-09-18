@@ -22,15 +22,15 @@ const disposicion = [
   },
   {
     clases: "md:col-span-2",
-    fondo: "bg-[var(--yaku-cream-deep)]",
-    texto: "text-[var(--yaku-black)]",
+    fondo: "bg-[var(--yaku-surface)]",
+    texto: "text-[var(--yaku-text)]",
     suave: "text-[var(--yaku-muted)]",
   },
   {
     clases: "md:col-span-1",
-    fondo: "bg-[var(--yaku-black)]",
-    texto: "text-white",
-    suave: "text-white/60",
+    fondo: "bg-[var(--yaku-surface-2)]",
+    texto: "text-[var(--yaku-text)]",
+    suave: "text-[var(--yaku-muted)]",
   },
   {
     clases: "md:col-span-1",
@@ -54,7 +54,7 @@ export function BentoSection() {
     <section
       id="colecciones"
       ref={sectionRef}
-      className="py-24 px-6 md:px-12 lg:px-24 bg-[var(--yaku-cream)]"
+      className="py-24 px-6 md:px-12 lg:px-24 bg-[var(--yaku-bg)]"
     >
       <div className="max-w-7xl mx-auto">
         {/* Header */}
@@ -67,7 +67,7 @@ export function BentoSection() {
             {t.colecciones.volanta}
           </p>
           <h2
-            className={`font-display text-4xl md:text-5xl lg:text-6xl mb-4 text-[var(--yaku-black)] transition-all duration-1000 delay-100 ${
+            className={`font-display text-4xl md:text-5xl lg:text-6xl mb-4 text-[var(--yaku-text)] transition-all duration-1000 delay-100 ${
               isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
             }`}
           >
@@ -93,7 +93,7 @@ export function BentoSection() {
             return (
               <Link
                 key={categoria}
-                href="#catalogo"
+                href={`/catalogo?categoria=${categoria}`}
                 className={`group relative overflow-hidden rounded-3xl p-8 flex flex-col justify-between transition-all duration-1000 ${estilo.clases} ${estilo.fondo} ${
                   isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-12"
                 }`}

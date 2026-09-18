@@ -17,7 +17,7 @@ export function LanguageToggle({ oscuro = false }: { oscuro?: boolean }) {
       className={`rounded-full border px-3 py-1.5 text-[11px] font-medium uppercase tracking-widest transition-colors ${
         oscuro
           ? "border-white/30 text-white hover:border-white hover:bg-white/10"
-          : "border-[var(--yaku-line)] text-[var(--yaku-black)] hover:border-[var(--yaku-violet)] hover:text-[var(--yaku-violet)]"
+          : "border-[var(--yaku-line)] text-[var(--yaku-text)] hover:border-[var(--yaku-violet)] hover:text-[var(--yaku-violet)]"
       }`}
     >
       {locale === "es" ? "EN" : "ES"}

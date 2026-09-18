@@ -22,7 +22,7 @@ export function TestimonialsSection() {
     <section
       id="testimonios"
       ref={ref}
-      className="py-20 lg:py-32 bg-[var(--yaku-cream)]"
+      className="py-20 lg:py-32 bg-[var(--yaku-bg)]"
     >
       <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
         {/* Header */}
@@ -34,7 +34,7 @@ export function TestimonialsSection() {
           <p className="text-sm text-[var(--yaku-muted)] uppercase tracking-wider mb-4 font-body">
             {t.testimonios.volanta}
           </p>
-          <h2 className="font-display text-4xl sm:text-5xl text-[var(--yaku-black)]">
+          <h2 className="font-display text-4xl sm:text-5xl text-[var(--yaku-text)]">
             {t.testimonios.titulo}
           </h2>
         </div>
@@ -57,12 +57,12 @@ export function TestimonialsSection() {
                 aria-hidden={activeIndex !== index}
               >
                 <blockquote className="mb-8">
-                  <p className="font-display text-2xl md:text-3xl lg:text-4xl text-[var(--yaku-black)] leading-relaxed max-w-4xl">
+                  <p className="font-display text-2xl md:text-3xl lg:text-4xl text-[var(--yaku-text)] leading-relaxed max-w-4xl">
                     &ldquo;{testimonio.cita}&rdquo;
                   </p>
                 </blockquote>
                 <footer>
-                  <p className="text-[var(--yaku-black)] font-medium mb-1">
+                  <p className="text-[var(--yaku-text)] font-medium mb-1">
                     {testimonio.autor}
                   </p>
                   <p className="text-sm text-[var(--yaku-muted)] font-body">
@@ -78,7 +78,7 @@ export function TestimonialsSection() {
             <button
               type="button"
               onClick={anterior}
-              className="w-12 h-12 rounded-full border border-[var(--yaku-line)] flex items-center justify-center text-[var(--yaku-black)] hover:border-[var(--yaku-violet)] hover:text-[var(--yaku-violet)] transition-colors"
+              className="w-12 h-12 rounded-full border border-[var(--yaku-line)] flex items-center justify-center text-[var(--yaku-text)] hover:border-[var(--yaku-violet)] hover:text-[var(--yaku-violet)] transition-colors"
               aria-label="Anterior"
             >
               <ChevronLeft className="w-5 h-5" />
@@ -103,7 +103,7 @@ export function TestimonialsSection() {
             <button
               type="button"
               onClick={siguiente}
-              className="w-12 h-12 rounded-full border border-[var(--yaku-line)] flex items-center justify-center text-[var(--yaku-black)] hover:border-[var(--yaku-violet)] hover:text-[var(--yaku-violet)] transition-colors"
+              className="w-12 h-12 rounded-full border border-[var(--yaku-line)] flex items-center justify-center text-[var(--yaku-text)] hover:border-[var(--yaku-violet)] hover:text-[var(--yaku-violet)] transition-colors"
               aria-label="Siguiente"
             >
               <ChevronRight className="w-5 h-5" />

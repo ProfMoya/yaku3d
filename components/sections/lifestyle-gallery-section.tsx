@@ -13,7 +13,7 @@ export function LifestyleGallerySection() {
     <section
       id="taller"
       ref={sectionRef}
-      className="py-24 px-6 md:px-12 lg:px-24 bg-[var(--yaku-cream-deep)]"
+      className="py-24 px-6 md:px-12 lg:px-24 bg-[var(--yaku-surface)]"
     >
       <div className="max-w-7xl mx-auto">
         {/* Header */}
@@ -26,7 +26,7 @@ export function LifestyleGallerySection() {
             {t.taller.volanta}
           </p>
           <h2
-            className={`font-display text-4xl md:text-5xl lg:text-6xl mb-6 text-[var(--yaku-black)] transition-all duration-1000 delay-100 ${
+            className={`font-display text-4xl md:text-5xl lg:text-6xl mb-6 text-[var(--yaku-text)] transition-all duration-1000 delay-100 ${
               isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
             }`}
           >
@@ -56,7 +56,7 @@ export function LifestyleGallerySection() {
               {t.taller.bloqueTexto}
             </p>
             <Link
-              href="#catalogo"
+              href="/a-pedido"
               className="border border-white px-6 py-3 rounded-full hover:bg-white hover:text-[var(--yaku-violet)] transition-all duration-300 self-start text-sm"
             >
               {t.taller.bloqueCta}
@@ -68,7 +68,7 @@ export function LifestyleGallerySection() {
             {t.taller.capturas.map((caption, index) => (
               <div
                 key={caption}
-                className={`relative overflow-hidden rounded-3xl bg-[var(--yaku-cream)] group transition-all duration-1000 ${
+                className={`relative overflow-hidden rounded-3xl bg-[var(--yaku-bg)] group transition-all duration-1000 ${
                   isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-12"
                 }`}
                 style={{
@@ -89,7 +89,7 @@ export function LifestyleGallerySection() {
           }`}
         >
           <p className="text-[var(--yaku-muted)] mb-6">{t.taller.cierre}</p>
-          <span className="inline-block border border-[var(--yaku-black)] px-8 py-3 rounded-full text-[var(--yaku-black)]">
+          <span className="inline-block border border-[var(--yaku-black)] px-8 py-3 rounded-full text-[var(--yaku-text)]">
             {t.taller.hashtag}
           </span>
         </div>

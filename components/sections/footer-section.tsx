@@ -9,16 +9,16 @@ export function FooterSection() {
   const t = useT();
 
   const navegacion = [
-    { href: "#catalogo", label: t.nav.catalogo },
-    { href: "#porque", label: t.nav.porQue },
-    { href: "#taller", label: t.nav.taller },
-    { href: "#testimonios", label: t.nav.testimonios },
+    { href: "/", label: t.nav.inicio },
+    { href: "/catalogo", label: t.nav.catalogo },
+    { href: "/a-pedido", label: t.nav.aPedido },
+    { href: "/taller", label: t.nav.taller },
   ];
 
   return (
     <footer
       ref={ref}
-      className="bg-[var(--yaku-cream)] border-t border-[var(--yaku-line)]"
+      className="bg-[var(--yaku-bg)] border-t border-[var(--yaku-line)]"
     >
       <div className="max-w-[1400px] mx-auto px-6 lg:px-12 py-16 lg:py-20">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
@@ -29,8 +29,8 @@ export function FooterSection() {
             }`}
           >
             <Link
-              href="#"
-              className="font-display text-3xl text-[var(--yaku-black)] block mb-6"
+              href="/"
+              className="font-display text-3xl text-[var(--yaku-text)] block mb-6"
             >
               Yaku<span className="text-[var(--yaku-magenta)]">3D</span>
             </Link>
@@ -58,7 +58,7 @@ export function FooterSection() {
                 isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
               }`}
             >
-              <h3 className="text-sm text-[var(--yaku-black)] font-medium mb-4">
+              <h3 className="text-sm text-[var(--yaku-text)] font-medium mb-4">
                 {t.footer.navegacion}
               </h3>
               <ul className="flex flex-wrap items-center gap-6">

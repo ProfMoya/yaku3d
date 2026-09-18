@@ -17,6 +17,8 @@ const es = {
     porQue: "Por qué Yaku3D",
     taller: "El taller",
     testimonios: "Testimonios",
+    aPedido: "Pedidos a medida",
+    inicio: "Inicio",
     abrirMenu: "Abrir menú",
     cerrarMenu: "Cerrar menú",
     cambiarIdioma: "Ver la web en inglés",
@@ -45,11 +47,9 @@ const es = {
       personalizados: "Personalizados",
     },
   },
+  // Datos técnicos comunes a todas las piezas. Cuando el catálogo viva en
+  // Supabase, cada producto va a traer los suyos.
   detalle: {
-    nombre: "Florero espiralado Yaku",
-    precio: 32000,
-    descripcion:
-      "Impreso en una sola pieza con pared espiralada, sin costuras visibles. Lleva un vaso interno de vidrio, así que se puede usar con agua.",
     bloques: {
       ficha: {
         titulo: "Ficha técnica",
@@ -168,6 +168,75 @@ const es = {
     derechos: "2026 Yaku3D. Todos los derechos reservados.",
     legales: ["Política de privacidad", "Términos del servicio", "Cookies"],
   },
+  paginas: {
+    catalogo: {
+      titulo: "Catálogo",
+      bajada:
+        "Todo lo que imprimimos, listo para entregar. Si buscás algo que no está, lo hacemos a medida.",
+    },
+    producto: {
+      volver: "Volver al catálogo",
+      relacionados: "También te puede servir",
+      descripcionGenerica:
+        "Pieza impresa en 3D en nuestro taller, lijada y revisada antes de salir. Se puede adaptar en tamaño, color y terminación: escribinos y lo vemos.",
+      noEncontrado: "No encontramos esa pieza.",
+    },
+    aPedido: {
+      titulo: "Pedidos a medida",
+      bajada:
+        "Contanos qué necesitás y te pasamos presupuesto. Si tenés una foto, un plano o la pieza rota que querés reemplazar, mejor todavía.",
+      pasos: [
+        {
+          titulo: "Contanos la idea",
+          texto:
+            "Completá el formulario con lo que tenés en la cabeza. No hace falta que sepas de impresión 3D.",
+        },
+        {
+          titulo: "Te pasamos presupuesto",
+          texto:
+            "Vemos si se puede imprimir, en qué material conviene y cuánto sale. Si hay que ajustar algo, te lo decimos.",
+        },
+        {
+          titulo: "Lo imprimimos",
+          texto:
+            "Con el visto bueno arrancamos. Los plazos dependen del tamaño y la cantidad, pero siempre te damos una fecha.",
+        },
+      ],
+      form: {
+        titulo: "Contanos qué necesitás",
+        nombre: "Tu nombre",
+        nombrePh: "Cómo te llamás",
+        tipo: "Qué tipo de pieza",
+        tipoPh: "Un repuesto, algo decorativo, un regalo…",
+        cantidad: "Cantidad",
+        cantidadPh: "1, 10, 50…",
+        medidas: "Medidas de referencia",
+        medidasPh: "Si las sabés. Si no, dejalo vacío",
+        descripcion: "Contanos con tus palabras",
+        descripcionPh:
+          "Para qué lo necesitás, dónde va, si tiene que aguantar peso o estar a la intemperie…",
+        enviar: "Seguir por WhatsApp",
+        aviso:
+          "Se abre WhatsApp con el mensaje ya escrito. Podés revisarlo antes de mandarlo.",
+        sinNumero:
+          "Falta cargar el número de WhatsApp de Yaku3D. Definí NEXT_PUBLIC_WHATSAPP_NUMBER en .env.local para activar el botón.",
+        requerido: "Completá al menos tu nombre y qué necesitás.",
+      },
+    },
+    taller: {
+      titulo: "El taller",
+      bajada:
+        "Quiénes somos, cómo trabajamos y cómo se ven las piezas fuera de la foto de catálogo.",
+    },
+  },
+  home: {
+    ctaPedido: {
+      titulo: "¿No encontrás lo que buscás?",
+      texto:
+        "Diseñamos y fabricamos piezas a medida. Contanos qué necesitás y te pasamos presupuesto.",
+      boton: "Pedir a medida",
+    },
+  },
   comun: {
     sinFoto: "Foto en camino",
     consultar: "Consultar",
@@ -180,6 +249,8 @@ const en: typeof es = {
     porQue: "Why Yaku3D",
     taller: "The workshop",
     testimonios: "Testimonials",
+    aPedido: "Custom orders",
+    inicio: "Home",
     abrirMenu: "Open menu",
     cerrarMenu: "Close menu",
     cambiarIdioma: "Ver la web en español",
@@ -208,10 +279,6 @@ const en: typeof es = {
     },
   },
   detalle: {
-    nombre: "Yaku spiral vase",
-    precio: 32000,
-    descripcion:
-      "Printed as a single spiralised piece, with no visible seams. It comes with an inner glass liner, so it holds water.",
     bloques: {
       ficha: {
         titulo: "Specs",
@@ -329,6 +396,75 @@ const en: typeof es = {
     navegacion: "Navigation",
     derechos: "2026 Yaku3D. All rights reserved.",
     legales: ["Privacy policy", "Terms of service", "Cookies"],
+  },
+  paginas: {
+    catalogo: {
+      titulo: "Catalogue",
+      bajada:
+        "Everything we print, ready to ship. If what you want isn't here, we make it to order.",
+    },
+    producto: {
+      volver: "Back to the catalogue",
+      relacionados: "You might also need",
+      descripcionGenerica:
+        "3D printed in our workshop, sanded and checked before it ships. Size, colour and finish can all be adapted: write to us and we'll sort it out.",
+      noEncontrado: "We couldn't find that piece.",
+    },
+    aPedido: {
+      titulo: "Custom orders",
+      bajada:
+        "Tell us what you need and we'll quote it. A photo, a drawing or the broken part you want replaced helps even more.",
+      pasos: [
+        {
+          titulo: "Tell us the idea",
+          texto:
+            "Fill in the form with whatever you have in mind. You don't need to know anything about 3D printing.",
+        },
+        {
+          titulo: "We quote it",
+          texto:
+            "We work out whether it can be printed, which material suits it and what it costs. If something needs adjusting, we'll say so.",
+        },
+        {
+          titulo: "We print it",
+          texto:
+            "Once you give the go-ahead we start. Lead times depend on size and quantity, but you always get a date.",
+        },
+      ],
+      form: {
+        titulo: "Tell us what you need",
+        nombre: "Your name",
+        nombrePh: "What we should call you",
+        tipo: "What kind of piece",
+        tipoPh: "A spare part, something decorative, a gift…",
+        cantidad: "Quantity",
+        cantidadPh: "1, 10, 50…",
+        medidas: "Approximate measurements",
+        medidasPh: "If you know them. Leave blank if not",
+        descripcion: "Describe it in your own words",
+        descripcionPh:
+          "What you need it for, where it goes, whether it has to bear weight or live outdoors…",
+        enviar: "Continue on WhatsApp",
+        aviso:
+          "This opens WhatsApp with the message already written. You can review it before sending.",
+        sinNumero:
+          "Yaku3D's WhatsApp number hasn't been set yet. Define NEXT_PUBLIC_WHATSAPP_NUMBER in .env.local to enable the button.",
+        requerido: "Please fill in at least your name and what you need.",
+      },
+    },
+    taller: {
+      titulo: "The workshop",
+      bajada:
+        "Who we are, how we work, and what the pieces look like outside the catalogue photo.",
+    },
+  },
+  home: {
+    ctaPedido: {
+      titulo: "Can't find what you're looking for?",
+      texto:
+        "We design and make custom pieces. Tell us what you need and we'll quote it.",
+      boton: "Order custom",
+    },
   },
   comun: {
     sinFoto: "Photo coming soon",

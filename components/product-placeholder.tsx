@@ -12,7 +12,7 @@ export function ProductPlaceholder({ etiqueta }: { etiqueta?: string }) {
   const t = useT();
 
   return (
-    <div className="absolute inset-0 flex flex-col items-center justify-center gap-4 bg-[var(--yaku-cream-deep)]">
+    <div className="absolute inset-0 flex flex-col items-center justify-center gap-4 bg-[var(--yaku-surface)]">
       <svg
         viewBox="0 0 64 56"
         className="w-16 h-14"

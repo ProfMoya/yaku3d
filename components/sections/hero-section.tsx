@@ -53,7 +53,7 @@ export function HeroSection() {
   return (
     <section className="relative bg-[var(--yaku-black)] -mt-20 overflow-hidden">
       <div
-        className="w-full bg-[var(--yaku-cream)]"
+        className="w-full bg-[var(--yaku-bg)]"
         style={{
           paddingLeft: `${horizontalPadding}px`,
           paddingRight: `${horizontalPadding}px`,
@@ -116,7 +116,7 @@ export function HeroSection() {
               </p>
 
               <Link
-                href="#catalogo"
+                href="/catalogo"
                 className={`flex items-center justify-center gap-2 bg-[var(--yaku-magenta)] text-[var(--yaku-black)] px-6 py-4 rounded-full text-sm font-medium hover:bg-[var(--yaku-violet)] hover:text-white transition-all duration-700 delay-500 w-full ${
                   isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
                 }`}
@@ -136,7 +136,7 @@ export function HeroSection() {
                 }`}
               >
                 <Link
-                  href="#catalogo"
+                  href="/catalogo"
                   className="inline-flex items-center gap-2 bg-[var(--yaku-magenta)] text-[var(--yaku-black)] px-6 py-3 rounded-full text-sm font-medium hover:bg-[var(--yaku-violet)] hover:text-white transition-colors"
                 >
                   {t.hero.cta}

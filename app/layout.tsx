@@ -41,7 +41,7 @@ export const metadata: Metadata = {
 }
 
 export const viewport: Viewport = {
-  themeColor: '#F2ECEB',
+  themeColor: '#0B0910',
 }
 
 export default function RootLayout({
@@ -52,7 +52,7 @@ export default function RootLayout({
   return (
     // `lang` arranca en español y el toggle ES/EN lo actualiza desde el cliente.
     <html lang="es" className="scroll-smooth">
-      <body className={`${playfair.variable} ${inter.variable} font-body antialiased bg-[var(--yaku-cream)] text-[var(--yaku-black)] overflow-x-hidden`}>
+      <body className={`${playfair.variable} ${inter.variable} font-body antialiased bg-[var(--yaku-bg)] text-[var(--yaku-text)] overflow-x-hidden`}>
         <I18nProvider>{children}</I18nProvider>
         <Analytics />
       </body>

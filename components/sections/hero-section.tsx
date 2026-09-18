@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import Image from "next/image";
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import { useT } from "@/lib/i18n/context";
@@ -74,9 +73,10 @@ export function HeroSection() {
             borderRadius: `${borderRadius}px`,
           }}
         >
-          {/* Video del taller. `poster` muestra la foto mientras el video
-              carga, para que el hero no arranque en negro. muted + playsInline
-              son obligatorios: sin los dos, iOS no reproduce solo. */}
+          {/* Video del taller. Sin `poster`: la foto se veia un instante al
+              abrir y saltaba al video. Mientras carga queda el negro del
+              contenedor. muted + playsInline son obligatorios: sin los dos,
+              iOS no reproduce solo. */}
           <div
             className={`absolute inset-0 transition-all duration-1000 ${
               isVisible ? "scale-100 opacity-100" : "scale-105 opacity-0"
@@ -84,11 +84,11 @@ export function HeroSection() {
           >
             <video
               src="/videos/videoheader.mp4"
-              poster="/images/hero-taller.jpg"
               autoPlay
               loop
               muted
               playsInline
+              preload="auto"
               aria-hidden="true"
               className="absolute inset-0 w-full h-full object-cover"
             />

@@ -22,6 +22,18 @@ export async function getProductosAdmin(): Promise<ProductoAdmin[]> {
   return (data ?? []) as ProductoAdmin[];
 }
 
+export async function getProductoAdmin(id: string): Promise<ProductoRow | null> {
+  const supabase = await createClient();
+  const { data, error } = await supabase
+    .from("productos")
+    .select("*")
+    .eq("id", id)
+    .maybeSingle();
+
+  if (error) throw new Error(`No se pudo leer la pieza: ${error.message}`);
+  return (data as ProductoRow) ?? null;
+}
+
 export async function getCategoriasAdmin(): Promise<CategoriaRow[]> {
   const supabase = await createClient();
   const { data, error } = await supabase

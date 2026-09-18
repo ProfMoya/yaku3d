@@ -6,7 +6,7 @@ import { PedidoForm } from "@/components/pedido-form";
 export const metadata: Metadata = {
   title: "Pedidos a medida — Yaku3D",
   description:
-    "Diseñamos y fabricamos piezas a medida. Contanos qué necesitás y te pasamos presupuesto por WhatsApp.",
+    "Diseñamos y fabricamos piezas a medida. Cuéntanos qué necesitas y te pasamos presupuesto por WhatsApp.",
 };
 
 export default function APedidoPage() {

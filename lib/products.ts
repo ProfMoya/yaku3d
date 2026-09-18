@@ -3,14 +3,15 @@
  *
  * Los datos son verosímiles pero inventados: sirven para entregar la web con
  * el catálogo lleno y después se borran o editan desde el panel (fase 2).
+ * Los precios están en euros.
  *
- * Ninguna pieza tiene foto propia todavia, asi que `imagen` queda en `null` y
+ * Ninguna pieza tiene foto propia todavía, así que `imagen` queda en `null` y
  * la tarjeta cae en <ProductPlaceholder />, que dibuja una silueta de capas
- * segun la categoria. Los bancos de imagenes no tienen fotos de piezas
- * impresas que coincidan con estos productos, y una foto de un objeto comun
- * mentiria sobre que es la pieza.
+ * según la categoría. Los bancos de imágenes no tienen fotos de piezas
+ * impresas que coincidan con estos productos, y una foto de un objeto común
+ * mentiría sobre qué es la pieza.
  *
- * Para cambiar una foto: dejarla en `public/images/` y poner la ruta acá.
+ * Para cambiar una foto: dejarla en `public/images/` y poner la ruta aquí.
  */
 
 export type CategoriaId =
@@ -57,6 +58,7 @@ export type Producto = {
   slug: string;
   /** Los nombres propios no se traducen. */
   nombre: string;
+  /** En euros. */
   precio: number;
   categoria: CategoriaId;
   imagen: string | null;
@@ -75,7 +77,7 @@ export const productos: Producto[] = [
     id: 1,
     slug: "organizador-escritorio-kuska",
     nombre: "Organizador de escritorio Kuska",
-    precio: 28000,
+    precio: 24.9,
     categoria: "organizadores",
     imagen: null,
     material: "pla",
@@ -84,7 +86,7 @@ export const productos: Producto[] = [
     colores: ["negro", "blanco", "violeta"],
     aptoExterior: false,
     descripcion: {
-      es: "Cinco compartimentos de distinta profundidad: los dos del fondo entran lapiceras paradas, el del frente es playo para clips y llaves. La base va lijada y lleva pies de goma para que no raye el escritorio.",
+      es: "Cinco compartimentos de distinta profundidad: en los dos del fondo caben bolígrafos de pie, y el de delante es plano, para clips y llaves. La base va lijada y lleva pies de goma para que no raye la mesa.",
       en: "Five compartments at different depths: the two at the back take pens upright, the shallow front one is for clips and keys. The base is sanded and comes with rubber feet so it won't scratch your desk.",
     },
   },
@@ -92,7 +94,7 @@ export const productos: Producto[] = [
     id: 2,
     slug: "portacables-muyu",
     nombre: "Portacables Muyu",
-    precio: 6500,
+    precio: 5.9,
     categoria: "organizadores",
     imagen: null,
     material: "tpu",
@@ -101,7 +103,7 @@ export const productos: Producto[] = [
     colores: ["negro", "gris", "magenta"],
     aptoExterior: false,
     descripcion: {
-      es: "Impreso en TPU, así que flexiona para entrar y después agarra. Entran cables de hasta 6 mm. Se pega al canto del escritorio con cinta de doble faz y no se despega al tirar del cable.",
+      es: "Impreso en TPU, así que flexiona para entrar y luego agarra. Admite cables de hasta 6 mm. Se pega al canto de la mesa con cinta de doble cara y no se suelta al tirar del cable.",
       en: "Printed in TPU, so it flexes to go on and then grips. Fits cables up to 6mm. Sticks to the edge of a desk with double-sided tape and won't come off when you tug the cable.",
     },
   },
@@ -109,7 +111,7 @@ export const productos: Producto[] = [
     id: 3,
     slug: "bandeja-apilable-pacha",
     nombre: "Bandeja apilable Pacha",
-    precio: 19000,
+    precio: 16.9,
     categoria: "organizadores",
     imagen: null,
     material: "pla",
@@ -118,7 +120,7 @@ export const productos: Producto[] = [
     colores: ["blanco", "gris", "negro"],
     aptoExterior: false,
     descripcion: {
-      es: "Se apilan con un encastre en las cuatro esquinas y quedan firmes, sin bailar. Aguanta bien el peso de papeles y herramientas chicas. Se puede pedir de a una o en torres de tres.",
+      es: "Se apilan con un encaje en las cuatro esquinas y quedan firmes, sin bailar. Aguantan bien el peso de papeles y herramientas pequeñas. Se pueden pedir sueltas o en torres de tres.",
       en: "They stack via a joint at all four corners and sit firm, without wobbling. Holds paper and small tools without sagging. Available singly or in stacks of three.",
     },
   },
@@ -126,7 +128,7 @@ export const productos: Producto[] = [
     id: 4,
     slug: "soporte-auriculares-antay",
     nombre: "Soporte para auriculares Antay",
-    precio: 15000,
+    precio: 18.9,
     categoria: "organizadores",
     imagen: null,
     material: "petg",
@@ -135,7 +137,7 @@ export const productos: Producto[] = [
     colores: ["negro", "violeta"],
     aptoExterior: false,
     descripcion: {
-      es: "El brazo es ancho y redondeado para no marcar la vincha. La base lleva un hueco que se puede lastrar con monedas o arena si usás auriculares pesados.",
+      es: "El brazo es ancho y redondeado para no marcar la diadema. La base tiene un hueco que puedes lastrar con monedas o arena si usas auriculares pesados.",
       en: "The arm is wide and rounded so it won't crease the headband. The base has a cavity you can weigh down with coins or sand if your headphones are heavy.",
     },
   },
@@ -143,7 +145,7 @@ export const productos: Producto[] = [
     id: 5,
     slug: "portalapices-inti",
     nombre: "Portalápices Inti",
-    precio: 11000,
+    precio: 11.9,
     categoria: "organizadores",
     imagen: null,
     material: "pla",
@@ -152,7 +154,7 @@ export const productos: Producto[] = [
     colores: ["blanco", "violeta", "magenta", "natural"],
     aptoExterior: false,
     descripcion: {
-      es: "Pared espiralada impresa en una sola pasada, sin costura vertical. El interior va dividido en dos para separar lo que escribe de lo que corta.",
+      es: "Pared espiralada impresa de una sola pasada, sin costura vertical. El interior va dividido en dos para separar lo que escribe de lo que corta.",
       en: "Spiralised wall printed in a single pass, with no vertical seam. The inside is split in two to keep what writes apart from what cuts.",
     },
   },
@@ -162,7 +164,7 @@ export const productos: Producto[] = [
     id: 6,
     slug: "florero-espiralado-yaku",
     nombre: "Florero espiralado Yaku",
-    precio: 32000,
+    precio: 29.9,
     categoria: "deco",
     imagen: null,
     material: "petg",
@@ -171,7 +173,7 @@ export const productos: Producto[] = [
     colores: ["blanco", "violeta", "natural"],
     aptoExterior: true,
     descripcion: {
-      es: "Impreso en una sola pieza con pared espiralada, sin costuras visibles. Lleva un vaso interno de vidrio, así que se puede usar con agua sin que la pieza filtre. Disponible en 12, 18 y 24 cm de alto.",
+      es: "Impreso en una sola pieza con pared espiralada, sin costuras visibles. Lleva un vaso interior de cristal, así que aguanta agua sin que la pieza filtre. Disponible en 12, 18 y 24 cm de alto.",
       en: "Printed as a single spiralised piece, with no visible seams. It comes with an inner glass liner, so it holds water without the print leaking. Available at 12, 18 and 24cm tall.",
     },
   },
@@ -179,7 +181,7 @@ export const productos: Producto[] = [
     id: 7,
     slug: "posavasos-wayra",
     nombre: "Set de posavasos Wayra",
-    precio: 14000,
+    precio: 14.9,
     categoria: "deco",
     imagen: null,
     material: "petg",
@@ -188,15 +190,15 @@ export const productos: Producto[] = [
     colores: ["negro", "blanco", "magenta", "violeta"],
     aptoExterior: true,
     descripcion: {
-      es: "Set de cuatro con textura de ondas concéntricas que retiene la condensación en vez de dejarla correr. PETG, así que no se deforma con un café recién hecho apoyado encima.",
+      es: "Juego de cuatro, con una textura de ondas concéntricas que retiene la condensación en vez de dejarla correr. PETG, así que no se deforman con un café recién hecho encima.",
       en: "Set of four, with a concentric wave texture that traps condensation instead of letting it run. PETG, so a fresh coffee sitting on top won't warp them.",
     },
   },
   {
     id: 8,
     slug: "portarretrato-killa",
-    nombre: "Portarretrato Killa",
-    precio: 17500,
+    nombre: "Portarretratos Killa",
+    precio: 16.9,
     categoria: "deco",
     imagen: null,
     material: "pla",
@@ -205,7 +207,7 @@ export const productos: Producto[] = [
     colores: ["negro", "blanco", "natural"],
     aptoExterior: false,
     descripcion: {
-      es: "Para fotos de 13 × 18 cm. El pie va atornillado y se puede girar, así que sirve apaisado o vertical sin comprar dos. Sin vidrio: la foto entra por una ranura lateral.",
+      es: "Para fotos de 13 × 18 cm. El pie va atornillado y gira, así que sirve en horizontal o en vertical sin comprar dos. Sin cristal: la foto entra por una ranura lateral.",
       en: "Takes 13 × 18cm photos. The stand is screwed on and rotates, so one frame works landscape or portrait. No glass: the photo slides in through a side slot.",
     },
   },
@@ -213,7 +215,7 @@ export const productos: Producto[] = [
     id: 9,
     slug: "movil-geometrico-chaska",
     nombre: "Móvil geométrico Chaska",
-    precio: 24000,
+    precio: 24.9,
     categoria: "deco",
     imagen: null,
     material: "pla",
@@ -222,7 +224,7 @@ export const productos: Producto[] = [
     colores: ["blanco", "violeta", "magenta"],
     aptoExterior: false,
     descripcion: {
-      es: "Doce piezas huecas colgadas de tanza, pensadas para que el conjunto pese poco y gire con la corriente de aire. Viene desarmado con las medidas de cada tramo de tanza marcadas.",
+      es: "Doce piezas huecas colgadas de hilo de nailon, pensadas para que el conjunto pese poco y gire con la corriente de aire. Se envía desmontado, con la medida de cada tramo de hilo marcada.",
       en: "Twelve hollow pieces hung from fishing line, designed to stay light enough to turn with a draught. Ships flat, with the length of each line marked.",
     },
   },
@@ -232,7 +234,7 @@ export const productos: Producto[] = [
     id: 10,
     slug: "gancho-adhesivo-rumi",
     nombre: "Gancho adhesivo Rumi",
-    precio: 4500,
+    precio: 4.9,
     categoria: "hogar",
     imagen: null,
     material: "petg",
@@ -241,15 +243,15 @@ export const productos: Producto[] = [
     colores: ["blanco", "negro", "gris"],
     aptoExterior: true,
     descripcion: {
-      es: "Aguanta 3 kg con la cinta 3M que viene incluida. El gancho tiene labio hacia arriba para que la correa o la bolsa no se zafe sola.",
+      es: "Aguanta 3 kg con la cinta 3M que viene incluida. La punta del gancho sube, para que la correa o la bolsa no se escurra sola.",
       en: "Holds 3kg with the included 3M tape. The hook curves up at the tip so a strap or bag can't slip off on its own.",
     },
   },
   {
     id: 11,
-    slug: "soporte-celular-puma",
-    nombre: "Soporte para celular Puma",
-    precio: 9000,
+    slug: "soporte-movil-puma",
+    nombre: "Soporte para móvil Puma",
+    precio: 8.9,
     categoria: "hogar",
     imagen: null,
     material: "pla",
@@ -258,15 +260,15 @@ export const productos: Producto[] = [
     colores: ["negro", "violeta", "magenta"],
     aptoExterior: false,
     descripcion: {
-      es: "Dos ángulos de apoyo: uno parado para videollamada y otro más tumbado para ver video. Tiene el paso del cable abierto, así que carga apoyado sin que el conector haga palanca.",
+      es: "Dos ángulos de apoyo: uno de pie para videollamadas y otro más tumbado para ver vídeo. El paso del cable está abierto, así que carga apoyado sin que el conector haga palanca.",
       en: "Two resting angles: one upright for video calls, one laid back for watching. The cable channel is open, so it charges while docked without the connector levering.",
     },
   },
   {
     id: 12,
     slug: "dispenser-mayu",
-    nombre: "Dispenser Mayu",
-    precio: 21000,
+    nombre: "Dispensador Mayu",
+    precio: 19.9,
     categoria: "hogar",
     imagen: null,
     material: "petg",
@@ -275,15 +277,15 @@ export const productos: Producto[] = [
     colores: ["blanco", "negro"],
     aptoExterior: false,
     descripcion: {
-      es: "Para detergente o alcohol en gel. El pico va impreso aparte con pared más gruesa para que no se raje con el uso. Se desarma sin herramientas para lavarlo.",
+      es: "Para lavavajillas o gel hidroalcohólico. La boquilla se imprime aparte, con la pared más gruesa para que no se raje con el uso. Se desmonta sin herramientas para lavarlo.",
       en: "For washing-up liquid or hand sanitiser. The spout is printed separately with thicker walls so it won't crack with use. Comes apart without tools for cleaning.",
     },
   },
   {
     id: 13,
-    slug: "traba-puerta-sacha",
-    nombre: "Traba puerta Sacha",
-    precio: 5500,
+    slug: "tope-puerta-sacha",
+    nombre: "Tope de puerta Sacha",
+    precio: 6.9,
     categoria: "hogar",
     imagen: null,
     material: "tpu",
@@ -292,7 +294,7 @@ export const productos: Producto[] = [
     colores: ["negro", "gris", "magenta"],
     aptoExterior: true,
     descripcion: {
-      es: "TPU con relleno alto: cede lo justo para agarrarse al piso sin marcarlo. La rampa es larga y baja, así que sirve tanto en cerámico como en piso flotante.",
+      es: "TPU con relleno alto: cede lo justo para agarrarse al suelo sin marcarlo. La rampa es larga y baja, así que funciona igual en baldosa que en suelo laminado.",
       en: "TPU with high infill: it gives just enough to grip the floor without marking it. The ramp is long and low, so it works on tile as well as laminate.",
     },
   },
@@ -302,7 +304,7 @@ export const productos: Producto[] = [
     id: 14,
     slug: "set-dados-wasi",
     nombre: "Set de dados Wasi",
-    precio: 12000,
+    precio: 12.9,
     categoria: "juegos",
     imagen: null,
     material: "pla",
@@ -311,7 +313,7 @@ export const productos: Producto[] = [
     colores: ["negro", "violeta", "magenta", "blanco"],
     aptoExterior: false,
     descripcion: {
-      es: "Set de siete dados de rol (d4 a d20) con los números en relieve y pintados a mano. Impresos con relleno parejo para que caigan equilibrados.",
+      es: "Juego de siete dados de rol (d4 a d20) con los números en relieve y pintados a mano. Impresos con relleno uniforme para que caigan equilibrados.",
       en: "Seven-dice roleplaying set (d4 to d20) with raised, hand-painted numbers. Printed with even infill so they roll fair.",
     },
   },
@@ -319,7 +321,7 @@ export const productos: Producto[] = [
     id: 15,
     slug: "rompecabezas-tinku",
     nombre: "Rompecabezas Tinku",
-    precio: 16000,
+    precio: 15.9,
     categoria: "juegos",
     imagen: null,
     material: "pla",
@@ -328,7 +330,7 @@ export const productos: Producto[] = [
     colores: ["natural", "violeta", "negro"],
     aptoExterior: false,
     descripcion: {
-      es: "Seis piezas que encastran en un cubo y solo salen en un orden. Las tolerancias están ajustadas a mano pieza por pieza: entra firme pero sin forzar.",
+      es: "Seis piezas que encajan en un cubo y solo salen en un orden. Las tolerancias se ajustan a mano pieza por pieza: entra firme, pero sin forzar.",
       en: "Six pieces that lock into a cube and only come apart in one order. Tolerances are tuned by hand, piece by piece: snug, but never forced.",
     },
   },
@@ -336,7 +338,7 @@ export const productos: Producto[] = [
     id: 16,
     slug: "fichas-chakana",
     nombre: "Fichas Chakana",
-    precio: 8500,
+    precio: 9.9,
     categoria: "juegos",
     imagen: null,
     material: "pla",
@@ -355,7 +357,7 @@ export const productos: Producto[] = [
     id: 17,
     slug: "llavero-a-medida",
     nombre: "Llavero a medida",
-    precio: 3500,
+    precio: 3.9,
     categoria: "personalizados",
     imagen: null,
     material: "petg",
@@ -364,7 +366,7 @@ export const productos: Producto[] = [
     colores: ["negro", "blanco", "violeta", "magenta", "gris"],
     aptoExterior: true,
     descripcion: {
-      es: "Con el nombre, una fecha o un logo en relieve. A partir de diez unidades baja el precio por pieza: sirve para souvenirs de evento.",
+      es: "Con un nombre, una fecha o un logotipo en relieve. A partir de diez unidades baja el precio por pieza, así que sale a cuenta para detalles de evento.",
       en: "With a name, a date or a logo in relief. The per-unit price drops from ten upwards, which makes it work for event giveaways.",
     },
   },
@@ -372,7 +374,7 @@ export const productos: Producto[] = [
     id: 18,
     slug: "cartel-personalizado",
     nombre: "Cartel personalizado",
-    precio: 26000,
+    precio: 22.9,
     categoria: "personalizados",
     imagen: null,
     material: "petg",
@@ -381,7 +383,7 @@ export const productos: Producto[] = [
     colores: ["negro", "blanco", "violeta", "magenta"],
     aptoExterior: true,
     descripcion: {
-      es: "Letras en relieve a dos colores, para local o para casa. Se puede imprimir con perforaciones para atornillar o con la cara lisa para pegar. Mandanos el texto y te pasamos una previa antes de imprimir.",
+      es: "Letras en relieve a dos colores, para un local o para casa. Se puede imprimir con taladros para atornillar o con la cara lisa para pegar. Mándanos el texto y te enseñamos una previsualización antes de imprimir.",
       en: "Two-colour raised lettering, for a shop or a home. It can be printed with holes for screws or flat-backed for adhesive. Send us the text and we'll show you a preview before printing.",
     },
   },

@@ -36,7 +36,7 @@ const es = {
     verTodo: "Ver todo el catálogo",
   },
   catalogo: {
-    titulo: "Explorá el catálogo",
+    titulo: "Explora el catálogo",
     bajada: "Piezas listas para entregar, o adaptadas a la medida que necesites.",
     categorias: {
       todos: "Todo",
@@ -61,7 +61,7 @@ const es = {
       },
       envio: {
         titulo: "Envíos",
-        texto: "A todo el país. Retiro sin cargo por el taller.",
+        texto: "Envíos a toda España. Recogida gratis en el taller.",
       },
     },
     cta: "Consultar por WhatsApp",
@@ -94,13 +94,13 @@ const es = {
       {
         titulo: "Hecho a tu medida",
         texto:
-          "Traenos una foto, un plano o la pieza rota que querés reemplazar. Si no existe, lo diseñamos; si existe pero no te sirve, lo adaptamos.",
+          "Tráenos una foto, un plano o la pieza rota que quieras sustituir. Si no existe, lo diseñamos; si existe pero no te sirve, lo adaptamos.",
       },
     ],
   },
   colecciones: {
     volanta: "Colecciones",
-    titulo: "Buscá por categoría",
+    titulo: "Busca por categoría",
     bajada: "Cinco familias de piezas, todas impresas en el mismo taller.",
     unaPieza: "1 pieza",
     piezas: "piezas",
@@ -112,9 +112,9 @@ const es = {
       "Así se ven nuestras impresiones fuera de la foto de catálogo, en las casas y escritorios de quienes las compraron.",
     bloqueTitulo: "Tu idea, impresa",
     bloqueTexto:
-      "Si tenés algo en la cabeza que no encontrás en ningún lado, probablemente se pueda imprimir. Escribinos y lo charlamos.",
+      "Si tienes algo en la cabeza que no encuentras en ningún sitio, probablemente se pueda imprimir. Escríbenos y lo hablamos.",
     bloqueCta: "Pedir presupuesto",
-    cierre: "Mostranos lo que imprimiste con nosotros",
+    cierre: "Enséñanos lo que imprimiste con nosotros",
     hashtag: "#Yaku3D",
     capturas: ["En el escritorio", "En casa", "Para regalar", "Hecho a medida"],
   },
@@ -124,7 +124,7 @@ const es = {
     parrafo1:
       "Yaku3D empezó con una impresora en un escritorio y la idea de que fabricar algo no tendría que depender de un molde, una fábrica ni un pedido mínimo de mil unidades.",
     parrafo2:
-      "Hoy seguimos imprimiendo de a una. Cada pedido pasa por nuestras manos: se imprime, se lija, se revisa y recién ahí sale.",
+      "Hoy seguimos imprimiendo de una en una. Cada pedido pasa por nuestras manos: se imprime, se lija, se revisa y solo entonces sale.",
   },
   testimonios: {
     volanta: "Testimonios",
@@ -134,36 +134,36 @@ const es = {
         cita: "Les mandé una foto de la pieza que se me había roto y me la devolvieron impresa, mejor que la original. Ya van tres veces que les pido algo.",
         autor: "Marina Duarte",
         rol: "Arquitecta",
-        lugar: "Rosario",
+        lugar: "Valencia",
       },
       {
-        cita: "Pedí organizadores para todo el escritorio y encajan perfecto. Se nota que alguien se sentó a pensar las medidas.",
-        autor: "Julián Ferreyra",
+        cita: "Pedí organizadores para toda la mesa y encajan perfectos. Se nota que alguien se sentó a pensar las medidas.",
+        autor: "Julián Herrero",
         rol: "Diseñador industrial",
         lugar: "Córdoba",
       },
       {
-        cita: "Compré un florero de regalo y terminé encargando cuatro más. La terminación no parece impresa en 3D.",
+        cita: "Compré un florero de regalo y acabé encargando cuatro más. El acabado no parece impreso en 3D.",
         autor: "Paula Giménez",
         rol: "Ceramista",
-        lugar: "La Plata",
+        lugar: "Bilbao",
       },
     ],
   },
   newsletter: {
-    volanta: "Mantenete al tanto",
-    titulo: "Sumate al newsletter",
+    volanta: "Mantente al tanto",
+    titulo: "Suscríbete al boletín",
     texto:
-      "Enterate primero de los modelos nuevos, los descuentos y lo que vamos probando en el taller.",
+      "Entérate el primero de los modelos nuevos, los descuentos y lo que vamos probando en el taller.",
     placeholder: "Tu correo electrónico",
     boton: "Suscribirme",
     exito: "Listo, ya estás en la lista.",
     privacidad:
-      "Al suscribirte aceptás nuestra política de privacidad. Podés darte de baja cuando quieras.",
+      "Al suscribirte aceptas nuestra política de privacidad. Puedes darte de baja cuando quieras.",
   },
   footer: {
     descripcion:
-      "Impresión 3D de diseño propio. Piezas funcionales, deco y trabajos a medida, fabricados en Argentina.",
+      "Impresión 3D de diseño propio. Piezas funcionales, deco y trabajos a medida, fabricados en España.",
     navegacion: "Navegación",
     derechos: "2026 Yaku3D. Todos los derechos reservados.",
     legales: ["Política de privacidad", "Términos del servicio", "Cookies"],
@@ -174,7 +174,7 @@ const es = {
     medidas: "Medidas",
     tiempo: "Tiempo de impresión",
     colores: "Colores",
-    exterior: "¿Va afuera?",
+    exterior: "¿Va fuera?",
     exteriorSi: "Sí, resiste intemperie",
     exteriorNo: "Solo interior",
     materiales: {
@@ -195,55 +195,55 @@ const es = {
     catalogo: {
       titulo: "Catálogo",
       bajada:
-        "Todo lo que imprimimos, listo para entregar. Si buscás algo que no está, lo hacemos a medida.",
+        "Todo lo que imprimimos, listo para entregar. Si buscas algo que no está, lo hacemos a medida.",
     },
     producto: {
       volver: "Volver al catálogo",
       relacionados: "También te puede servir",
       descripcionGenerica:
-        "Pieza impresa en 3D en nuestro taller, lijada y revisada antes de salir. Se puede adaptar en tamaño, color y terminación: escribinos y lo vemos.",
+        "Pieza impresa en 3D en nuestro taller, lijada y revisada antes de salir. Se puede adaptar en tamaño, color y acabado: escríbenos y lo vemos.",
       noEncontrado: "No encontramos esa pieza.",
     },
     aPedido: {
       titulo: "Pedidos a medida",
       bajada:
-        "Contanos qué necesitás y te pasamos presupuesto. Si tenés una foto, un plano o la pieza rota que querés reemplazar, mejor todavía.",
+        "Cuéntanos qué necesitas y te pasamos presupuesto. Si tienes una foto, un plano o la pieza rota que quieres sustituir, mejor todavía.",
       pasos: [
         {
-          titulo: "Contanos la idea",
+          titulo: "Cuéntanos la idea",
           texto:
-            "Completá el formulario con lo que tenés en la cabeza. No hace falta que sepas de impresión 3D.",
+            "Rellena el formulario con lo que tengas en la cabeza. No hace falta que sepas de impresión 3D.",
         },
         {
           titulo: "Te pasamos presupuesto",
           texto:
-            "Vemos si se puede imprimir, en qué material conviene y cuánto sale. Si hay que ajustar algo, te lo decimos.",
+            "Vemos si se puede imprimir, en qué material conviene y cuánto cuesta. Si hay que ajustar algo, te lo decimos.",
         },
         {
           titulo: "Lo imprimimos",
           texto:
-            "Con el visto bueno arrancamos. Los plazos dependen del tamaño y la cantidad, pero siempre te damos una fecha.",
+            "Con el visto bueno empezamos. Los plazos dependen del tamaño y la cantidad, pero siempre te damos una fecha.",
         },
       ],
       form: {
-        titulo: "Contanos qué necesitás",
+        titulo: "Cuéntanos qué necesitas",
         nombre: "Tu nombre",
-        nombrePh: "Cómo te llamás",
+        nombrePh: "Cómo te llamas",
         tipo: "Qué tipo de pieza",
-        tipoPh: "Un repuesto, algo decorativo, un regalo…",
+        tipoPh: "Un recambio, algo decorativo, un regalo…",
         cantidad: "Cantidad",
         cantidadPh: "1, 10, 50…",
         medidas: "Medidas de referencia",
-        medidasPh: "Si las sabés. Si no, dejalo vacío",
-        descripcion: "Contanos con tus palabras",
+        medidasPh: "Si las sabes. Si no, déjalo vacío",
+        descripcion: "Cuéntanoslo con tus palabras",
         descripcionPh:
-          "Para qué lo necesitás, dónde va, si tiene que aguantar peso o estar a la intemperie…",
+          "Para qué lo necesitas, dónde va, si tiene que aguantar peso o estar a la intemperie…",
         enviar: "Seguir por WhatsApp",
         aviso:
-          "Se abre WhatsApp con el mensaje ya escrito. Podés revisarlo antes de mandarlo.",
+          "Se abre WhatsApp con el mensaje ya escrito. Puedes revisarlo antes de enviarlo.",
         sinNumero:
-          "Falta cargar el número de WhatsApp de Yaku3D. Definí NEXT_PUBLIC_WHATSAPP_NUMBER en .env.local para activar el botón.",
-        requerido: "Completá al menos tu nombre y qué necesitás.",
+          "Falta cargar el número de WhatsApp de Yaku3D. Define NEXT_PUBLIC_WHATSAPP_NUMBER en .env.local para activar el botón.",
+        requerido: "Rellena al menos tu nombre y qué necesitas.",
       },
     },
     taller: {
@@ -254,9 +254,9 @@ const es = {
   },
   home: {
     ctaPedido: {
-      titulo: "¿No encontrás lo que buscás?",
+      titulo: "¿No encuentras lo que buscas?",
       texto:
-        "Diseñamos y fabricamos piezas a medida. Contanos qué necesitás y te pasamos presupuesto.",
+        "Diseñamos y fabricamos piezas a medida. Cuéntanos qué necesitas y te pasamos presupuesto.",
       boton: "Pedir a medida",
     },
   },
@@ -313,7 +313,7 @@ const en: typeof es = {
       },
       envio: {
         titulo: "Shipping",
-        texto: "Anywhere in Argentina. Free pickup at the workshop.",
+        texto: "Shipping across Spain. Free pickup at the workshop.",
       },
     },
     cta: "Ask on WhatsApp",
@@ -415,7 +415,7 @@ const en: typeof es = {
   },
   footer: {
     descripcion:
-      "3D printing, designed in house. Functional pieces, decor and custom work, made in Argentina.",
+      "3D printing, designed in house. Functional pieces, decor and custom work, made in Spain.",
     navegacion: "Navigation",
     derechos: "2026 Yaku3D. All rights reserved.",
     legales: ["Privacy policy", "Terms of service", "Cookies"],

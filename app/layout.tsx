@@ -20,7 +20,7 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   title: 'Yaku3D — Impresión 3D de diseño propio',
-  description: 'Objetos funcionales, deco y piezas a medida, diseñados y fabricados en nuestro taller. Envíos a todo el país.',
+  description: 'Objetos funcionales, deco y piezas a medida, diseñados y fabricados en nuestro taller. Envíos a toda España.',
   icons: {
     icon: [
       {

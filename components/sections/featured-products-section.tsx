@@ -45,31 +45,35 @@ export function FeaturedProductsSection() {
     <section ref={ref} className="py-16 lg:py-24 bg-transparent">
       <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
         <div className="flex flex-col lg:flex-row gap-12">
-          {/* Filtros */}
-          <div className="lg:w-48 flex-shrink-0 lg:sticky lg:top-28 lg:self-start">
-            <div className="flex flex-row flex-wrap lg:flex-col gap-0 border-t border-[var(--yaku-line)]">
-              {filtros.map((filtro) => {
-                const activo = filtroActivo === filtro;
-                return (
-                  <div
-                    key={filtro}
-                    className="border-b border-[var(--yaku-line)] flex-1 lg:flex-none"
-                  >
+          {/* Filtros. Se quedan fijos al scrollear en todos los tamaños.
+              `top-20` deja pasar la barra de navegación, que llega a unos 80px.
+
+              En móvil son una tira que se desplaza en horizontal: con seis
+              categorías, envolviéndolas ocuparían dos o tres líneas de alto
+              fijo y se comerían media pantalla. A partir de lg vuelven a la
+              columna lateral. */}
+          <div className="sticky top-20 z-30 self-start lg:top-28 lg:w-48 lg:flex-shrink-0">
+            <div className="-mx-6 px-6 py-3 bg-[var(--yaku-bg)]/90 backdrop-blur-md border-b border-[var(--yaku-line)] lg:mx-0 lg:px-0 lg:py-0 lg:bg-transparent lg:backdrop-blur-none lg:border-b-0 lg:border-t">
+              <div className="flex flex-row gap-2 overflow-x-auto lg:flex-col lg:gap-0 lg:overflow-visible">
+                {filtros.map((filtro) => {
+                  const activo = filtroActivo === filtro;
+                  return (
                     <button
+                      key={filtro}
                       type="button"
                       onClick={() => cambiarFiltro(filtro)}
                       aria-pressed={activo}
-                      className={`w-full text-left py-4 px-2 text-sm transition-colors font-body ${
+                      className={`flex-shrink-0 whitespace-nowrap rounded-full border px-4 py-2 text-sm transition-colors font-body lg:w-full lg:flex-shrink lg:whitespace-normal lg:rounded-none lg:border-0 lg:border-b lg:border-[var(--yaku-line)] lg:px-2 lg:py-4 lg:text-left ${
                         activo
-                          ? "text-[var(--yaku-magenta)] font-medium"
-                          : "text-[var(--yaku-muted)] hover:text-[var(--yaku-text)]"
+                          ? "border-[var(--yaku-magenta)] text-[var(--yaku-magenta)] font-medium"
+                          : "border-[var(--yaku-line)] text-[var(--yaku-muted)] hover:text-[var(--yaku-text)]"
                       }`}
                     >
                       {t.catalogo.categorias[filtro]}
                     </button>
-                  </div>
-                );
-              })}
+                  );
+                })}
+              </div>
             </div>
           </div>
 

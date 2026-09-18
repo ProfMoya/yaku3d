@@ -15,7 +15,9 @@ export function NewArrivalsSection() {
     <section ref={ref} className="py-20 lg:py-32 bg-transparent">
       <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
         {/* Header */}
-        <div className="flex items-end justify-between mb-12">
+        {/* En móvil se apila y se centra, como el resto de secciones; a partir
+            de md vuelve a la fila con el enlace a la derecha. */}
+        <div className="flex flex-col items-center text-center gap-4 mb-12 md:flex-row md:items-end md:justify-between md:text-left md:gap-0">
           <div
             className={`transition-all duration-700 ${
               isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"

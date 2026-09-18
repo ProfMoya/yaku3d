@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 export default function CatalogoPage() {
   return (
     <>
-      <PageHeader seccion="catalogo" />
+      <PageHeader seccion="catalogo" imagen="/images/headercatalogo.jpg" />
       {/* La grilla lee el filtro de la URL con useSearchParams, que necesita
           una frontera de Suspense para que la página siga siendo estática. */}
       <Suspense fallback={<div className="min-h-[60vh]" />}>

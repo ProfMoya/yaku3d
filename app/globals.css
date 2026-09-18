@@ -13,10 +13,10 @@
 
   /* Tema oscuro. Los tres niveles de superficie llevan una pizca de violeta
      para que el negro no se vea muerto al lado de los acentos. */
-  --yaku-bg: #0B0910;
-  --yaku-surface: #151020;
-  --yaku-surface-2: #1F1733;
-  --yaku-line: #2E2444;
+  --yaku-bg: #100C1A;
+  --yaku-surface: #1C1730;
+  --yaku-surface-2: #29214A;
+  --yaku-line: #3A2F5C;
 
   /* Texto. Contrastes medidos sobre --yaku-bg:
        --yaku-text        16.9:1  (cuerpo y títulos)
@@ -28,24 +28,24 @@
   --yaku-muted: #9B93AD;
   --yaku-violet-soft: #9A8AF9;
 
-  --background: #0B0910;
+  --background: #100C1A;
   --foreground: #F2ECEB;
-  --card: #151020;
+  --card: #1C1730;
   --card-foreground: #F2ECEB;
-  --popover: #151020;
+  --popover: #1C1730;
   --popover-foreground: #F2ECEB;
   --primary: #6650F2;
   --primary-foreground: #FFFFFF;
-  --secondary: #1F1733;
+  --secondary: #29214A;
   --secondary-foreground: #F2ECEB;
-  --muted: #1F1733;
+  --muted: #29214A;
   --muted-foreground: #9B93AD;
   --accent: #DB17E8;
   --accent-foreground: #000000;
   --destructive: #F87171;
-  --destructive-foreground: #0B0910;
-  --border: #2E2444;
-  --input: #2E2444;
+  --destructive-foreground: #100C1A;
+  --border: #3A2F5C;
+  --input: #3A2F5C;
   --ring: #6650F2;
   --radius: 9999px;
 

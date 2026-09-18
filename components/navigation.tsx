@@ -1,9 +1,8 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Menu, X } from "lucide-react";
 import { useT } from "@/lib/i18n/context";
 import { LanguageToggle } from "@/components/language-toggle";
 
@@ -12,6 +11,16 @@ export function Navigation() {
   const pathname = usePathname();
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+  // La altura del menú se mide del contenido y se aplica en píxeles. El truco
+  // de grid-rows 0fr→1fr sería más elegante, pero aquí no resolvía: la fila
+  // quedaba en 0 y el menú no se abría nunca. Con píxeles es determinista.
+  const contenidoRef = useRef<HTMLDivElement>(null);
+  const [alturaMenu, setAlturaMenu] = useState(0);
+
+  useEffect(() => {
+    setAlturaMenu(mobileMenuOpen ? (contenidoRef.current?.scrollHeight ?? 0) : 0);
+  }, [mobileMenuOpen, t]);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -44,7 +53,7 @@ export function Navigation() {
   return (
     <header className="fixed top-0 left-0 right-0 z-[100] pointer-events-none">
       <nav
-        className={`max-w-5xl mx-auto mt-6 px-4 pointer-events-auto transition-all duration-500 ${
+        className={`max-w-5xl mx-auto mt-6 px-4 pointer-events-auto transition-all duration-300 ${
           mobileMenuOpen ? "rounded-3xl" : "rounded-full"
         } ${
           sobreHero
@@ -96,20 +105,43 @@ export function Navigation() {
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               aria-label={mobileMenuOpen ? t.nav.cerrarMenu : t.nav.abrirMenu}
               aria-expanded={mobileMenuOpen}
+              aria-controls="menu-mobile"
             >
-              {mobileMenuOpen ? (
-                <X className="w-5 h-5" />
-              ) : (
-                <Menu className="w-5 h-5" />
-              )}
+              {/* Dos barras que giran hasta formar la X, en vez de cambiar un
+                  icono por otro de golpe. */}
+              <span aria-hidden="true" className="relative block w-5 h-5">
+                <span
+                  className={`absolute left-0 right-0 h-px bg-current transition-all duration-300 ease-out ${
+                    mobileMenuOpen ? "top-1/2 rotate-45" : "top-[34%]"
+                  }`}
+                />
+                <span
+                  className={`absolute left-0 right-0 h-px bg-current transition-all duration-300 ease-out ${
+                    mobileMenuOpen ? "top-1/2 -rotate-45" : "top-[62%]"
+                  }`}
+                />
+              </span>
             </button>
           </div>
         </div>
 
-        {/* Menú mobile */}
-        {mobileMenuOpen && (
-          <div className="md:hidden py-8 border-t border-[var(--yaku-line)]">
-            <div className="flex flex-col gap-6">
+        {/* Menú mobile.
+            Se queda siempre montado y se abre con grid-rows de 0fr a 1fr: así
+            la altura se anima sola, sin tener que medir el contenido. Cerrado
+            lleva `invisible`, que además lo saca del orden de tabulación. */}
+        <div
+          id="menu-mobile"
+          style={{ height: alturaMenu }}
+          // `inert` saca los enlaces del orden de tabulación mientras está
+          // cerrado: con altura 0 y overflow oculto seguirían siendo
+          // alcanzables con el teclado.
+          inert={!mobileMenuOpen}
+          className={`md:hidden overflow-hidden transition-[height,opacity] duration-300 ease-out ${
+            mobileMenuOpen ? "opacity-100" : "opacity-0"
+          }`}
+        >
+          <div ref={contenidoRef}>
+            <div className="flex flex-col gap-6 py-8 border-t border-[var(--yaku-line)]">
               {navLinks.map((link) => (
                 <Link
                   key={link.href}
@@ -126,7 +158,7 @@ export function Navigation() {
               ))}
             </div>
           </div>
-        )}
+        </div>
       </nav>
     </header>
   );

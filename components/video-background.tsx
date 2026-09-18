@@ -29,7 +29,7 @@ export function VideoBackground() {
         preload="auto"
         className="absolute inset-0 h-full w-full object-cover"
       />
-      <div className="absolute inset-0 bg-[var(--yaku-bg)]/85" />
+      <div className="absolute inset-0 bg-[var(--yaku-bg)]/60" />
     </div>
   );
 }

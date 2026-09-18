@@ -2,15 +2,16 @@
  * Links a WhatsApp con el mensaje ya escrito, para no perder el contexto de
  * la consulta cuando la persona llega al chat.
  *
- * ⚠️ FALTA EL NÚMERO REAL. Poner el de Yaku3D en `.env.local`:
+ * El número sale de `.env.local`:
  *
- *     NEXT_PUBLIC_WHATSAPP_NUMBER=549XXXXXXXXXX
+ *     NEXT_PUBLIC_WHATSAPP_NUMBER=34673310344
  *
- * Formato: código de país + 9 + característica sin 0 + número sin 15.
- * Para Córdoba 351 5054755 sería 5493515054755.
+ * Formato internacional sin + ni espacios (España: 34 + móvil de 9 dígitos).
  *
- * Mientras no esté definido, `whatsappConfigurado` da false y los botones
- * quedan deshabilitados en vez de abrir un chat a un número inventado.
+ * Ojo al desplegar: `.env.local` está en .gitignore, así que la variable hay
+ * que volver a cargarla en el panel del hosting (Vercel, Netlify, etc.). Si
+ * falta, `whatsappConfigurado` da false y los botones quedan deshabilitados en
+ * vez de abrir un chat a un número que no existe.
  */
 
 const NUMERO = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER ?? "";

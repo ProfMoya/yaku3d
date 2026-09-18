@@ -56,12 +56,16 @@ create policy "medios: admin acceso total" on medios
 -- ---------------------------------------------------------------------------
 -- Alta del unico administrador
 --
--- Crear primero el usuario en Authentication → Users → Add user, y despues
--- cambiar el email de aqui abajo por el que se uso. Sin esto, el panel abre
--- pero no deja guardar nada, porque la sesion no esta en la lista.
+-- Crear primero el usuario en Authentication → Users → Add user. Si se dio de
+-- alta con otro email, cambiarlo aqui abajo. Sin esta fila el panel abre pero
+-- no deja guardar nada, porque la sesion no esta en la lista.
 -- ---------------------------------------------------------------------------
 
 insert into admins (user_id, email)
 select id, email from auth.users
-where email = 'CAMBIAR-POR-TU-EMAIL@ejemplo.com'
+where email = 'agustinmoyaa7@gmail.com'
 on conflict (user_id) do nothing;
+
+-- Comprobacion: tiene que devolver exactamente una fila. Si devuelve cero, el
+-- usuario no existe todavia o el email no coincide.
+select user_id, email from admins;

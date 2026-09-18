@@ -93,6 +93,24 @@ create trigger productos_set_updated_at
 -- La publishable key viaja al navegador, asi que todo lo que protege la base
 -- son estas politicas. El publico solo lee lo publicado; escribir requiere
 -- sesion.
+--
+-- ⚠️ DE QUE DEPENDE ESTO
+--
+-- Las politicas de administrador dicen `auth.role() = 'authenticated'`, o sea
+-- "cualquiera con sesion iniciada". Eso solo es seguro si NADIE puede crearse
+-- una sesion por su cuenta. Hay que desactivar el registro publico:
+--
+--   Authentication → Sign In / Providers → Email
+--   → desactivar "Allow new users to sign up"
+--
+-- Sin ese ajuste, cualquiera puede registrarse con la publishable key (que
+-- esta a la vista en el navegador) y quedar con permisos para editar y borrar
+-- todo el catalogo. Los usuarios se siguen pudiendo dar de alta a mano desde
+-- Authentication → Users, que es como se crea el unico admin.
+--
+-- Comprobacion desde fuera:
+--   curl -s -H "apikey: <publishable>" https://<proyecto>.supabase.co/auth/v1/settings
+--   tiene que devolver "disable_signup": true
 -- ---------------------------------------------------------------------------
 
 alter table categorias enable row level security;

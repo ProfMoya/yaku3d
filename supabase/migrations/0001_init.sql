@@ -100,12 +100,15 @@ alter table productos enable row level security;
 alter table medios enable row level security;
 alter table pedidos enable row level security;
 
+drop policy if exists "categorias: lectura publica" on categorias;
 create policy "categorias: lectura publica" on categorias
   for select using (true);
 
+drop policy if exists "productos: lectura publica de publicados" on productos;
 create policy "productos: lectura publica de publicados" on productos
   for select using (publicado = true);
 
+drop policy if exists "medios: lectura publica" on medios;
 create policy "medios: lectura publica" on medios
   for select using (
     exists (
@@ -114,51 +117,33 @@ create policy "medios: lectura publica" on medios
     )
   );
 
+drop policy if exists "pedidos: insert publico" on pedidos;
 create policy "pedidos: insert publico" on pedidos
   for insert with check (true);
 
+drop policy if exists "categorias: admin acceso total" on categorias;
 create policy "categorias: admin acceso total" on categorias
   for all using (auth.role() = 'authenticated')
   with check (auth.role() = 'authenticated');
 
+drop policy if exists "productos: admin acceso total" on productos;
 create policy "productos: admin acceso total" on productos
   for all using (auth.role() = 'authenticated')
   with check (auth.role() = 'authenticated');
 
+drop policy if exists "medios: admin acceso total" on medios;
 create policy "medios: admin acceso total" on medios
   for all using (auth.role() = 'authenticated')
   with check (auth.role() = 'authenticated');
 
+drop policy if exists "pedidos: admin lectura" on pedidos;
 create policy "pedidos: admin lectura" on pedidos
   for select using (auth.role() = 'authenticated');
 
+drop policy if exists "pedidos: admin actualiza estado" on pedidos;
 create policy "pedidos: admin actualiza estado" on pedidos
   for update using (auth.role() = 'authenticated')
   with check (auth.role() = 'authenticated');
-
--- ---------------------------------------------------------------------------
--- Storage — fotos de producto y portadas de categoria
--- ---------------------------------------------------------------------------
-
-insert into storage.buckets (id, name, public)
-values ('productos-media', 'productos-media', true)
-on conflict (id) do nothing;
-
-create policy "productos-media: lectura publica"
-  on storage.objects for select
-  using (bucket_id = 'productos-media');
-
-create policy "productos-media: admin sube"
-  on storage.objects for insert
-  with check (bucket_id = 'productos-media' and auth.role() = 'authenticated');
-
-create policy "productos-media: admin actualiza"
-  on storage.objects for update
-  using (bucket_id = 'productos-media' and auth.role() = 'authenticated');
-
-create policy "productos-media: admin borra"
-  on storage.objects for delete
-  using (bucket_id = 'productos-media' and auth.role() = 'authenticated');
 
 -- ---------------------------------------------------------------------------
 -- Datos semilla — las 5 categorias y las 18 piezas del catalogo de demo,

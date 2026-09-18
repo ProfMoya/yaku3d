@@ -24,7 +24,7 @@ export function CtaPedidoSection() {
             style={{ background: "var(--yaku-magenta)" }}
           />
 
-          <div className="relative flex flex-col lg:flex-row lg:items-end lg:justify-between gap-8">
+          <div className="relative flex flex-col items-center text-center lg:flex-row lg:items-end lg:justify-between lg:text-left gap-8">
             <div className="max-w-xl">
               <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl text-white mb-4">
                 {t.home.ctaPedido.titulo}

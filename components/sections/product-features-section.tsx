@@ -53,8 +53,13 @@ export function ProductFeaturesSection() {
               }`}
               style={{ transitionDelay: `${(index + 1) * 200}ms` }}
             >
-              {/* Texto: izquierda en los pares, derecha en los impares */}
-              <div className={index % 2 === 1 ? "md:order-2" : ""}>
+              {/* Texto: centrado en móvil; a partir de md alterna izquierda y
+                  derecha para que el bloque zigzaguee. */}
+              <div
+                className={`text-center md:text-left ${
+                  index % 2 === 1 ? "md:order-2" : ""
+                }`}
+              >
                 <h3 className="font-display text-3xl md:text-4xl mb-6 text-[var(--yaku-text)]">
                   {item.titulo}
                 </h3>

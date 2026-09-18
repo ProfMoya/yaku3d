@@ -24,7 +24,7 @@ export function FooterSection() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
           {/* Marca */}
           <div
-            className={`lg:col-span-4 transition-all duration-700 ${
+            className={`lg:col-span-4 text-center lg:text-left transition-all duration-700 ${
               isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
             }`}
           >
@@ -38,7 +38,7 @@ export function FooterSection() {
               {t.footer.descripcion}
             </p>
 
-            <div className="flex items-center gap-4">
+            <div className="flex items-center justify-center lg:justify-start gap-4">
               {["Instagram", "WhatsApp", "TikTok"].map((red) => (
                 <a
                   key={red}
@@ -52,7 +52,7 @@ export function FooterSection() {
           </div>
 
           {/* Navegación */}
-          <div className="lg:col-span-8">
+          <div className="lg:col-span-8 text-center lg:text-left">
             <div
               className={`transition-all duration-700 delay-100 ${
                 isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
@@ -61,7 +61,7 @@ export function FooterSection() {
               <h3 className="text-sm text-[var(--yaku-text)] font-medium mb-4">
                 {t.footer.navegacion}
               </h3>
-              <ul className="flex flex-wrap items-center gap-6">
+              <ul className="flex flex-wrap items-center justify-center lg:justify-start gap-6">
                 {navegacion.map((link) => (
                   <li key={link.href}>
                     <Link

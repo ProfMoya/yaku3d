@@ -56,8 +56,9 @@ export function ProductDetail({
             <ProductMedia producto={producto} />
           </div>
 
-          {/* Info */}
-          <div className="flex flex-col justify-center">
+          {/* Info. Centrada en móvil como el resto de encabezados; la ficha
+              técnica mantiene sus dos columnas, que ahí el centrado estorba. */}
+          <div className="flex flex-col justify-center text-center lg:text-left">
             <Link
               href={`/catalogo?categoria=${producto.categoria}`}
               className="text-sm text-[var(--yaku-muted)] hover:text-[var(--yaku-violet-soft)] uppercase tracking-wider mb-3 font-body transition-colors"
@@ -119,7 +120,7 @@ export function ProductDetail({
         </div>
 
         {/* Relacionados */}
-        <div className="mt-24">
+        <div className="mt-24 text-center lg:text-left">
           <h2 className="font-display text-2xl lg:text-3xl text-[var(--yaku-text)] mb-8">
             {t.paginas.producto.relacionados}
           </h2>

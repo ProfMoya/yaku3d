@@ -69,7 +69,7 @@ export function EditorialSection() {
 
         {/* Contenido */}
         <div className="relative h-full flex flex-col justify-end px-6 lg:px-12 pb-16 lg:pb-24">
-          <div className="max-w-[1400px] mx-auto w-full">
+          <div className="max-w-[1400px] mx-auto w-full text-center lg:text-left">
             <div
               className={`mb-8 transition-all duration-700 delay-100 ${
                 isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
@@ -79,7 +79,7 @@ export function EditorialSection() {
                 {t.editorial.titulo}
               </h2>
 
-              <div className="flex items-center justify-between flex-wrap gap-4 mb-8">
+              <div className="flex flex-col items-center justify-center gap-4 mb-8 lg:flex-row lg:justify-between lg:flex-wrap">
                 <div className="flex items-center gap-3">
                   <div className="w-10 h-10 rounded-full bg-[var(--yaku-magenta)] flex items-center justify-center font-display text-sm text-[var(--yaku-black)]">
                     Y3

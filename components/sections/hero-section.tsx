@@ -5,6 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import { useT } from "@/lib/i18n/context";
+import { ScrollIndicator } from "@/components/scroll-indicator";
 
 export function HeroSection() {
   const t = useT();
@@ -168,6 +169,13 @@ export function HeroSection() {
               </div>
             </div>
           </div>
+
+          {/* Se desvanece rápido: multiplicado por 4, ya no está a un cuarto
+              del recorrido del hero. Se suma al fade de entrada para que no
+              aparezca antes que el titular. */}
+          <ScrollIndicator
+            opacidad={isVisible ? 1 - scrollProgress * 4 : 0}
+          />
         </div>
       </div>
     </section>

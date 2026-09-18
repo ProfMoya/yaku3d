@@ -34,6 +34,20 @@ export function linkConsulta(producto?: { nombre: string }) {
   return construir(texto);
 }
 
+/**
+ * Versión corta del pedido, para el bloque de contacto de la home: solo el
+ * nombre y la idea, sin las preguntas de cantidad ni medidas.
+ */
+export function linkIdea(datos: { nombre: string; idea: string }) {
+  const lineas = [
+    `Hola Yaku3D, soy ${datos.nombre || "—"}.`,
+    "",
+    "Mi idea:",
+    datos.idea || "—",
+  ];
+  return construir(lineas.join("\n"));
+}
+
 /** Link del formulario de pedidos a medida, con todo lo que cargó la persona. */
 export function linkPedido(datos: DatosPedido) {
   const lineas = [

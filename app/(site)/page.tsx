@@ -4,7 +4,7 @@ import { BentoSection } from "@/components/sections/bento-section";
 import { ProductFeaturesSection } from "@/components/sections/product-features-section";
 import { CtaPedidoSection } from "@/components/sections/cta-pedido-section";
 import { TestimonialsSection } from "@/components/sections/testimonials-section";
-import { NewsletterSection } from "@/components/sections/newsletter-section";
+import { ContactoRapidoSection } from "@/components/sections/contacto-rapido-section";
 
 export default function Home() {
   return (
@@ -15,7 +15,7 @@ export default function Home() {
       <ProductFeaturesSection />
       <CtaPedidoSection />
       <TestimonialsSection />
-      <NewsletterSection />
+      <ContactoRapidoSection />
     </>
   );
 }

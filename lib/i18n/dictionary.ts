@@ -150,16 +150,19 @@ const es = {
       },
     ],
   },
-  newsletter: {
-    volanta: "Mantente al tanto",
-    titulo: "Suscríbete al boletín",
+  contacto: {
+    volanta: "¿Tienes una idea?",
+    titulo: "Cuéntanosla en dos líneas",
     texto:
-      "Entérate el primero de los modelos nuevos, los descuentos y lo que vamos probando en el taller.",
-    placeholder: "Tu correo electrónico",
-    boton: "Suscribirme",
-    exito: "Listo, ya estás en la lista.",
-    privacidad:
-      "Al suscribirte aceptas nuestra política de privacidad. Puedes darte de baja cuando quieras.",
+      "Escribe tu nombre y qué te gustaría imprimir. Te contestamos por WhatsApp con un presupuesto, sin compromiso.",
+    nombre: "Tu nombre",
+    nombrePh: "Cómo te llamas",
+    idea: "Tu idea",
+    ideaPh: "Un soporte para el móvil, una pieza de recambio, un regalo…",
+    boton: "Enviar por WhatsApp",
+    aviso: "Se abre WhatsApp con el mensaje ya escrito.",
+    requerido: "Escribe tu nombre y tu idea.",
+    sinNumero: "Falta cargar el número de WhatsApp de Yaku3D.",
   },
   footer: {
     descripcion:
@@ -402,16 +405,19 @@ const en: typeof es = {
       },
     ],
   },
-  newsletter: {
-    volanta: "Stay in the loop",
-    titulo: "Join our newsletter",
+  contacto: {
+    volanta: "Got an idea?",
+    titulo: "Tell us in two lines",
     texto:
-      "Be the first to hear about new models, discounts, and whatever we are testing in the workshop.",
-    placeholder: "Your email address",
-    boton: "Subscribe",
-    exito: "You are on the list.",
-    privacidad:
-      "By subscribing you accept our privacy policy. You can unsubscribe at any time.",
+      "Write your name and what you'd like printed. We'll get back to you on WhatsApp with a quote, no strings attached.",
+    nombre: "Your name",
+    nombrePh: "What we should call you",
+    idea: "Your idea",
+    ideaPh: "A phone stand, a spare part, a gift…",
+    boton: "Send on WhatsApp",
+    aviso: "This opens WhatsApp with the message already written.",
+    requerido: "Please write your name and your idea.",
+    sinNumero: "Yaku3D's WhatsApp number hasn't been set yet.",
   },
   footer: {
     descripcion:

@@ -89,7 +89,7 @@ export function LifestyleGallerySection() {
           }`}
         >
           <p className="text-[var(--yaku-muted)] mb-6">{t.taller.cierre}</p>
-          <span className="inline-block border border-[var(--yaku-black)] px-8 py-3 rounded-full text-[var(--yaku-text)]">
+          <span className="inline-block border border-[var(--yaku-line)] px-8 py-3 rounded-full text-[var(--yaku-text)]">
             {t.taller.hashtag}
           </span>
         </div>

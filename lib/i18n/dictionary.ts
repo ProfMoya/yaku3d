@@ -168,6 +168,29 @@ const es = {
     derechos: "2026 Yaku3D. Todos los derechos reservados.",
     legales: ["Política de privacidad", "Términos del servicio", "Cookies"],
   },
+  ficha: {
+    titulo: "Ficha técnica",
+    material: "Material",
+    medidas: "Medidas",
+    tiempo: "Tiempo de impresión",
+    colores: "Colores",
+    exterior: "¿Va afuera?",
+    exteriorSi: "Sí, resiste intemperie",
+    exteriorNo: "Solo interior",
+    materiales: {
+      pla: "PLA",
+      petg: "PETG",
+      tpu: "TPU (flexible)",
+    },
+    nombresColores: {
+      negro: "Negro",
+      blanco: "Blanco",
+      gris: "Gris",
+      violeta: "Violeta",
+      magenta: "Magenta",
+      natural: "Natural",
+    },
+  },
   paginas: {
     catalogo: {
       titulo: "Catálogo",
@@ -396,6 +419,29 @@ const en: typeof es = {
     navegacion: "Navigation",
     derechos: "2026 Yaku3D. All rights reserved.",
     legales: ["Privacy policy", "Terms of service", "Cookies"],
+  },
+  ficha: {
+    titulo: "Specs",
+    material: "Material",
+    medidas: "Dimensions",
+    tiempo: "Print time",
+    colores: "Colours",
+    exterior: "Outdoor use?",
+    exteriorSi: "Yes, weather resistant",
+    exteriorNo: "Indoors only",
+    materiales: {
+      pla: "PLA",
+      petg: "PETG",
+      tpu: "TPU (flexible)",
+    },
+    nombresColores: {
+      negro: "Black",
+      blanco: "White",
+      gris: "Grey",
+      violeta: "Violet",
+      magenta: "Magenta",
+      natural: "Natural",
+    },
   },
   paginas: {
     catalogo: {

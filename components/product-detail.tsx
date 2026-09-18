@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { ArrowLeft, Layers, MessageCircle, Ruler, Truck } from "lucide-react";
+import { ArrowLeft, MessageCircle } from "lucide-react";
 import { useI18n } from "@/lib/i18n/context";
 import { ProductMedia } from "@/components/product-placeholder";
 import { formatearPrecio } from "@/lib/format";
@@ -9,9 +9,9 @@ import type { Producto } from "@/lib/products";
 import { linkConsulta, whatsappConfigurado } from "@/lib/whatsapp";
 
 /**
- * Ficha de producto. Los datos técnicos todavía salen del diccionario y son
- * los mismos para todas las piezas: cuando el catálogo viva en Supabase (fase
- * 2) cada producto va a traer los suyos.
+ * Ficha de producto. Los datos técnicos salen de `lib/products.ts` y las
+ * etiquetas del diccionario, así que la tabla se traduce entera con el
+ * toggle ES/EN.
  */
 export function ProductDetail({
   producto,
@@ -21,11 +21,22 @@ export function ProductDetail({
   relacionados: Producto[];
 }) {
   const { t, locale } = useI18n();
+  const f = t.ficha;
 
-  const bloques = [
-    { icono: Layers, ...t.detalle.bloques.ficha },
-    { icono: Ruler, ...t.detalle.bloques.medidas },
-    { icono: Truck, ...t.detalle.bloques.envio },
+  const especificaciones = [
+    { etiqueta: f.material, valor: f.materiales[producto.material] },
+    { etiqueta: f.medidas, valor: producto.medidas },
+    { etiqueta: f.tiempo, valor: producto.tiempoImpresion },
+    {
+      etiqueta: f.colores,
+      valor: producto.colores
+        .map((color) => f.nombresColores[color])
+        .join(" · "),
+    },
+    {
+      etiqueta: f.exterior,
+      valor: producto.aptoExterior ? f.exteriorSi : f.exteriorNo,
+    },
   ];
 
   return (
@@ -47,9 +58,12 @@ export function ProductDetail({
 
           {/* Info */}
           <div className="flex flex-col justify-center">
-            <p className="text-sm text-[var(--yaku-muted)] uppercase tracking-wider mb-3 font-body">
+            <Link
+              href={`/catalogo?categoria=${producto.categoria}`}
+              className="text-sm text-[var(--yaku-muted)] hover:text-[var(--yaku-violet-soft)] uppercase tracking-wider mb-3 font-body transition-colors"
+            >
               {t.catalogo.categorias[producto.categoria]}
-            </p>
+            </Link>
 
             <h1 className="font-display text-4xl lg:text-5xl text-[var(--yaku-text)] mb-2">
               {producto.nombre}
@@ -58,29 +72,29 @@ export function ProductDetail({
               {formatearPrecio(producto.precio, locale)}
             </p>
 
-            <p className="text-[var(--yaku-muted)] leading-relaxed mb-8 font-body">
-              {t.paginas.producto.descripcionGenerica}
+            <p className="text-[var(--yaku-muted)] leading-relaxed mb-10 font-body">
+              {producto.descripcion[locale]}
             </p>
 
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-8">
-              {bloques.map((bloque) => {
-                const Icono = bloque.icono;
-                return (
-                  <div key={bloque.titulo}>
-                    <Icono
-                      className="w-8 h-8 mb-3 text-[var(--yaku-violet-soft)]"
-                      strokeWidth={1}
-                    />
-                    <h2 className="text-sm font-medium text-[var(--yaku-text)] mb-2 font-body">
-                      {bloque.titulo}
-                    </h2>
-                    <p className="text-xs text-[var(--yaku-muted)] leading-relaxed font-body">
-                      {bloque.texto}
-                    </p>
-                  </div>
-                );
-              })}
-            </div>
+            {/* Ficha técnica */}
+            <h2 className="text-sm font-medium text-[var(--yaku-text)] uppercase tracking-wider mb-4 font-body">
+              {f.titulo}
+            </h2>
+            <dl className="border-t border-[var(--yaku-line)] mb-10">
+              {especificaciones.map((fila) => (
+                <div
+                  key={fila.etiqueta}
+                  className="flex justify-between gap-6 py-3 border-b border-[var(--yaku-line)] text-sm"
+                >
+                  <dt className="text-[var(--yaku-muted)] font-body flex-shrink-0">
+                    {fila.etiqueta}
+                  </dt>
+                  <dd className="text-[var(--yaku-text)] font-body text-right">
+                    {fila.valor}
+                  </dd>
+                </div>
+              ))}
+            </dl>
 
             {whatsappConfigurado ? (
               <a
@@ -119,7 +133,7 @@ export function ProductDetail({
                 <div className="aspect-[4/5] relative overflow-hidden bg-[var(--yaku-surface)] mb-4 rounded-2xl">
                   <ProductMedia producto={otro} />
                 </div>
-                <h3 className="font-display text-lg text-[var(--yaku-text)] mb-1">
+                <h3 className="font-display text-lg text-[var(--yaku-text)] mb-1 group-hover:text-[var(--yaku-violet-soft)] transition-colors">
                   {otro.nombre}
                 </h3>
                 <p className="text-[var(--yaku-muted)] text-sm font-body">

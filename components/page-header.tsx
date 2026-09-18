@@ -16,7 +16,9 @@ export function PageHeader({
   const { titulo, bajada } = t.paginas[seccion];
 
   return (
-    <header className="relative overflow-hidden bg-[var(--yaku-surface)] pt-36 pb-16 lg:pt-44 lg:pb-24">
+    // Semitransparente para que el video de fondo se intuya detrás del
+    // encabezado, sin restarle legibilidad al título.
+    <header className="relative overflow-hidden bg-[var(--yaku-surface)]/70 pt-36 pb-16 lg:pt-44 lg:pb-24">
       {/* Halo de marca, para que el encabezado no sea un rectángulo plano */}
       <div
         aria-hidden="true"

@@ -18,7 +18,7 @@ export function FooterSection() {
   return (
     <footer
       ref={ref}
-      className="bg-[var(--yaku-bg)] border-t border-[var(--yaku-line)]"
+      className="bg-transparent border-t border-[var(--yaku-line)]"
     >
       <div className="max-w-[1400px] mx-auto px-6 lg:px-12 py-16 lg:py-20">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">

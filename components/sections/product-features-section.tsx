@@ -22,7 +22,7 @@ export function ProductFeaturesSection() {
     <section
       id="porque"
       ref={sectionRef}
-      className="py-24 px-6 md:px-12 lg:px-24 bg-[var(--yaku-bg)]"
+      className="py-24 px-6 md:px-12 lg:px-24 bg-transparent"
     >
       <div className="max-w-7xl mx-auto">
         {/* Header */}

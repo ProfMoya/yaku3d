@@ -46,16 +46,20 @@ export function HeroSection() {
 
   // Valores interpolados: el bloque arranca a pantalla completa y al scrollear
   // se despega de los bordes y se redondea.
+  //
+  // La altura inicial suma los 80px del `-mt-20`: sin eso el hero termina 80px
+  // antes del borde inferior y asoma la sección siguiente nada más abrir.
   const borderRadius = scrollProgress * 24;
   const finalHeight = 600;
+  const alturaInicial = viewportHeight + 80;
   const currentHeight =
-    viewportHeight - (viewportHeight - finalHeight) * scrollProgress;
+    alturaInicial - (alturaInicial - finalHeight) * scrollProgress;
   const horizontalPadding = scrollProgress * 48;
 
   return (
     <section className="relative bg-[var(--yaku-black)] -mt-20 overflow-hidden">
       <div
-        className="w-full bg-[var(--yaku-bg)]"
+        className="w-full bg-transparent"
         style={{
           paddingLeft: `${horizontalPadding}px`,
           paddingRight: `${horizontalPadding}px`,
@@ -70,20 +74,23 @@ export function HeroSection() {
             borderRadius: `${borderRadius}px`,
           }}
         >
-          {/* Foto del taller. Cuando haya video propio, reemplazar este bloque
-              por un <video src="/videos/…" autoPlay loop muted playsInline
-              className="absolute inset-0 w-full h-full object-cover" />. */}
+          {/* Video del taller. `poster` muestra la foto mientras el video
+              carga, para que el hero no arranque en negro. muted + playsInline
+              son obligatorios: sin los dos, iOS no reproduce solo. */}
           <div
             className={`absolute inset-0 transition-all duration-1000 ${
               isVisible ? "scale-100 opacity-100" : "scale-105 opacity-0"
             }`}
           >
-            <Image
-              src="/images/hero-taller.jpg"
-              alt=""
-              fill
-              priority
-              className="object-cover"
+            <video
+              src="/videos/videoheader.mp4"
+              poster="/images/hero-taller.jpg"
+              autoPlay
+              loop
+              muted
+              playsInline
+              aria-hidden="true"
+              className="absolute inset-0 w-full h-full object-cover"
             />
             {/* Tinte de marca + oscurecido, para que el texto blanco se lea */}
             <div
@@ -151,7 +158,9 @@ export function HeroSection() {
                 </Link>
               </div>
 
-              <div className="absolute right-16 bottom-16 text-right">
+              {/* Arriba a la izquierda, despegado de la barra fija (que ocupa
+                  hasta unos 80px) para que respire. */}
+              <div className="absolute left-16 top-64 text-left">
                 <h1
                   className={`font-display text-8xl text-white italic transition-all duration-700 delay-300 ${
                     isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
@@ -160,7 +169,7 @@ export function HeroSection() {
                   {t.hero.tituloDesktop}
                 </h1>
                 <p
-                  className={`mt-4 text-white/90 text-sm max-w-md ml-auto transition-all duration-700 delay-400 text-left ${
+                  className={`mt-4 text-white/90 text-sm max-w-md transition-all duration-700 delay-400 ${
                     isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
                   }`}
                 >

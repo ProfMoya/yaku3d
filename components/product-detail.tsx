@@ -40,7 +40,7 @@ export function ProductDetail({
   ];
 
   return (
-    <div className="pt-32 pb-20 lg:pt-40 lg:pb-32 bg-[var(--yaku-bg)]">
+    <div className="pt-32 pb-20 lg:pt-40 lg:pb-32 bg-transparent">
       <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
         <Link
           href="/catalogo"

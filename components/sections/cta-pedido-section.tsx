@@ -11,7 +11,7 @@ export function CtaPedidoSection() {
   const t = useT();
 
   return (
-    <section ref={ref} className="py-16 lg:py-24 bg-[var(--yaku-bg)]">
+    <section ref={ref} className="py-16 lg:py-24 bg-transparent">
       <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
         <div
           className={`relative overflow-hidden rounded-3xl bg-[var(--yaku-violet-deep)] px-8 py-14 lg:px-16 lg:py-20 transition-all duration-1000 ${

@@ -288,13 +288,8 @@ html {
   animation: scroll-hint 2.2s ease-in-out infinite;
 }
 
-/* Quien pidió menos movimiento ve la flecha quieta, no desaparecida: sigue
-   indicando que hay contenido debajo. */
-@media (prefers-reduced-motion: reduce) {
-  .animate-scroll-hint {
-    animation: none;
-  }
-}
+/* Nota: no se desactiva con prefers-reduced-motion, por coherencia con el
+   video de fondo, que por decisión del cliente también se reproduce siempre. */
 
 .animate-reveal-up {
   animation: reveal-up 1s cubic-bezier(0.22, 1, 0.36, 1) forwards;

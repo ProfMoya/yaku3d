@@ -14,7 +14,7 @@ export default function APedidoPage() {
     <>
       <PageHeader seccion="aPedido" />
 
-      <section className="py-16 lg:py-24 bg-[var(--yaku-bg)]">
+      <section className="py-16 lg:py-24 bg-transparent">
         <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
             <div className="lg:col-span-5">

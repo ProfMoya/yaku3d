@@ -22,7 +22,7 @@ export function TestimonialsSection() {
     <section
       id="testimonios"
       ref={ref}
-      className="py-20 lg:py-32 bg-[var(--yaku-bg)]"
+      className="py-20 lg:py-32 bg-transparent"
     >
       <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
         {/* Header */}

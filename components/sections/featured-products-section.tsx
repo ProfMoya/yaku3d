@@ -42,7 +42,7 @@ export function FeaturedProductsSection() {
   };
 
   return (
-    <section ref={ref} className="py-16 lg:py-24 bg-[var(--yaku-bg)]">
+    <section ref={ref} className="py-16 lg:py-24 bg-transparent">
       <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
         <div className="flex flex-col lg:flex-row gap-12">
           {/* Filtros */}

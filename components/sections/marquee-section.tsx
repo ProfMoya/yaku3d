@@ -12,7 +12,7 @@ export function NewArrivalsSection() {
   const { t, locale } = useI18n();
 
   return (
-    <section ref={ref} className="py-20 lg:py-32 bg-[var(--yaku-bg)]">
+    <section ref={ref} className="py-20 lg:py-32 bg-transparent">
       <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
         {/* Header */}
         <div className="flex items-end justify-between mb-12">

@@ -41,6 +41,45 @@ export const categorias: CategoriaId[] = [
   "personalizados",
 ];
 
+/**
+ * Metadatos de cada categoría para la grilla de colecciones de la home.
+ *
+ * `visible` y `orden` son justamente los dos campos que el panel va a manejar
+ * en la fase 2: el check de "mostrar en la home" y el reordenar. Dejarlos ya
+ * en los datos evita tener que tocar el componente después.
+ *
+ * `imagen` es hoy una foto fija por categoría. Cuando el catálogo viva en
+ * Supabase saldrá de la pieza que se marque como portada de su categoría.
+ */
+export type CategoriaMeta = {
+  imagen: string | null;
+  visible: boolean;
+  orden: number;
+};
+
+export const categoriasMeta: Record<CategoriaId, CategoriaMeta> = {
+  organizadores: {
+    imagen: "/images/categoria-organizadores.jpg",
+    visible: true,
+    orden: 1,
+  },
+  deco: { imagen: "/images/categoria-deco.jpg", visible: true, orden: 2 },
+  hogar: { imagen: "/images/categoria-hogar.jpg", visible: true, orden: 3 },
+  juegos: { imagen: "/images/categoria-juegos.jpg", visible: true, orden: 4 },
+  personalizados: {
+    imagen: "/images/categoria-personalizados.jpg",
+    visible: true,
+    orden: 5,
+  },
+};
+
+/** Las categorías que van en la home, filtradas y ya ordenadas. */
+export function getCategoriasVisibles(): CategoriaId[] {
+  return categorias
+    .filter((c) => categoriasMeta[c].visible)
+    .sort((a, b) => categoriasMeta[a].orden - categoriasMeta[b].orden);
+}
+
 /** Los nombres de material no se traducen; los de color sí (ver diccionario). */
 export type MaterialId = "pla" | "petg" | "tpu";
 

@@ -1,54 +1,32 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import { useScrollReveal } from "@/hooks/use-scroll-reveal";
 import { useT } from "@/lib/i18n/context";
-import { categorias, productos } from "@/lib/products";
+import { categoriasMeta, getCategoriasVisibles, productos } from "@/lib/products";
 
 /**
  * Grilla de colecciones. La plantilla dejaba este componente devolviendo
- * `null`, así que la sección 7 de la home no renderizaba nada.
+ * `null`, así que la sección no renderizaba nada.
  *
- * Cada tarjeta tiene su lugar fijo en la grilla y su color, para que el bloque
- * tenga ritmo en vez de ser cinco rectángulos iguales.
+ * Cada posición de la grilla tiene su tamaño y su tinte, para que el bloque
+ * tenga ritmo en vez de ser cinco rectángulos iguales. Se indexa con módulo
+ * para que siga funcionando si el panel oculta o agrega categorías.
  */
 const disposicion = [
-  {
-    clases: "md:col-span-2 md:row-span-2",
-    fondo: "bg-[var(--yaku-violet)]",
-    texto: "text-white",
-    suave: "text-white/70",
-  },
-  {
-    clases: "md:col-span-2",
-    fondo: "bg-[var(--yaku-surface)]",
-    texto: "text-[var(--yaku-text)]",
-    suave: "text-[var(--yaku-muted)]",
-  },
-  {
-    clases: "md:col-span-1",
-    fondo: "bg-[var(--yaku-surface-2)]",
-    texto: "text-[var(--yaku-text)]",
-    suave: "text-[var(--yaku-muted)]",
-  },
-  {
-    clases: "md:col-span-1",
-    fondo: "bg-[var(--yaku-magenta)]",
-    texto: "text-[var(--yaku-black)]",
-    suave: "text-black/60",
-  },
-  {
-    clases: "md:col-span-4",
-    fondo: "bg-[var(--yaku-violet-deep)]",
-    texto: "text-white",
-    suave: "text-white/70",
-  },
+  { clases: "md:col-span-2 md:row-span-2", tinte: "var(--yaku-violet)" },
+  { clases: "md:col-span-2", tinte: "var(--yaku-violet-deep)" },
+  { clases: "md:col-span-1", tinte: "var(--yaku-black)" },
+  { clases: "md:col-span-1", tinte: "var(--yaku-magenta)" },
+  { clases: "md:col-span-4", tinte: "var(--yaku-violet-deep)" },
 ];
 
 export function BentoSection() {
   const { ref: sectionRef, isVisible } = useScrollReveal<HTMLElement>();
   const t = useT();
+  const visibles = getCategoriasVisibles();
 
   return (
     <section
@@ -84,8 +62,9 @@ export function BentoSection() {
 
         {/* Grilla */}
         <div className="grid grid-cols-1 md:grid-cols-4 auto-rows-[200px] gap-4">
-          {categorias.map((categoria, index) => {
-            const estilo = disposicion[index];
+          {visibles.map((categoria, index) => {
+            const estilo = disposicion[index % disposicion.length];
+            const meta = categoriasMeta[categoria];
             const cantidad = productos.filter(
               (p) => p.categoria === categoria,
             ).length;
@@ -94,30 +73,37 @@ export function BentoSection() {
               <Link
                 key={categoria}
                 href={`/catalogo?categoria=${categoria}`}
-                className={`group relative overflow-hidden rounded-3xl p-8 flex flex-col justify-between transition-all duration-1000 ${estilo.clases} ${estilo.fondo} ${
+                className={`group relative overflow-hidden rounded-3xl p-8 flex flex-col justify-between bg-[var(--yaku-surface)] transition-all duration-1000 ${estilo.clases} ${
                   isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-12"
                 }`}
                 style={{ transitionDelay: `${(index + 1) * 120}ms` }}
               >
-                {/* Capas de fondo */}
+                {meta.imagen && (
+                  <Image
+                    src={meta.imagen}
+                    alt=""
+                    fill
+                    className="object-cover transition-transform duration-700 group-hover:scale-105"
+                  />
+                )}
+
+                {/* Tinte de marca sobre la foto, para que el texto blanco se
+                    lea y para que las cinco tarjetas se vean de la misma
+                    familia aunque las fotos sean distintas. */}
                 <div
-                  className="absolute inset-0 opacity-10 transition-transform duration-700 group-hover:translate-y-2"
-                  style={{
-                    backgroundImage:
-                      "repeating-linear-gradient(0deg, transparent 0 11px, currentColor 11px 12px)",
-                  }}
+                  className="absolute inset-0 opacity-75 transition-opacity duration-500 group-hover:opacity-60 mix-blend-multiply"
+                  style={{ background: estilo.tinte }}
                 />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/30" />
 
                 <div className="relative flex items-start justify-between gap-4">
-                  <h3 className={`font-display text-2xl lg:text-3xl ${estilo.texto}`}>
+                  <h3 className="font-display text-2xl lg:text-3xl text-white">
                     {t.catalogo.categorias[categoria]}
                   </h3>
-                  <ArrowUpRight
-                    className={`w-5 h-5 flex-shrink-0 transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1 ${estilo.texto}`}
-                  />
+                  <ArrowUpRight className="w-5 h-5 flex-shrink-0 text-white transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1" />
                 </div>
 
-                <p className={`relative text-sm ${estilo.suave}`}>
+                <p className="relative text-sm text-white/80">
                   {cantidad === 1
                     ? t.colecciones.unaPieza
                     : `${cantidad} ${t.colecciones.piezas}`}

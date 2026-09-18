@@ -20,12 +20,13 @@
 
   /* Texto. Contrastes medidos sobre --yaku-bg:
        --yaku-text        16.9:1  (cuerpo y títulos)
-       --yaku-muted        6.8:1  (texto secundario)
+       --yaku-muted        5.9:1  (texto secundario; medido sobre el fondo
+                                   efectivo con el video detras, no sobre --yaku-bg)
        --yaku-violet-soft  7.0:1  (links; el violeta pleno da 3.8:1 y solo
                                    sirve para fondos o texto grande)
        --yaku-magenta      5.0:1  (sobre oscuro sí se puede usar como texto) */
   --yaku-text: #F2ECEB;
-  --yaku-muted: #9B93AD;
+  --yaku-muted: #B4ACC4;
   --yaku-violet-soft: #9A8AF9;
 
   --background: #100C1A;
@@ -39,7 +40,7 @@
   --secondary: #29214A;
   --secondary-foreground: #F2ECEB;
   --muted: #29214A;
-  --muted-foreground: #9B93AD;
+  --muted-foreground: #B4ACC4;
   --accent: #DB17E8;
   --accent-foreground: #000000;
   --destructive: #F87171;

@@ -27,9 +27,13 @@ export function VideoBackground() {
         muted
         playsInline
         preload="auto"
+        // El archivo es oscuro de origen (color medio rgb(60,11,86)), así que
+        // por mucho que se baje el velo el fondo seguiría apagado. El filtro
+        // ataca la causa: sube el brillo y satura un poco el violeta.
+        style={{ filter: "brightness(1.5) saturate(1.15)" }}
         className="absolute inset-0 h-full w-full object-cover"
       />
-      <div className="absolute inset-0 bg-[var(--yaku-bg)]/60" />
+      <div className="absolute inset-0 bg-[var(--yaku-bg)]/40" />
     </div>
   );
 }

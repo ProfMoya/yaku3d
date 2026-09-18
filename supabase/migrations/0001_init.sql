@@ -251,7 +251,7 @@ values
    'Rompecabezas Tinku', 15.90, 'pla', '90 × 90 × 90 mm', '4 h 45 min',
    '{natural,violeta,negro}', false, 2,
    'Seis piezas que encajan en un cubo y solo salen en un orden. Las tolerancias se ajustan a mano pieza por pieza: entra firme, pero sin forzar.',
-   'Six pieces that lock into a cube and only come apart in one order. Tolerances are tuned by hand, piece by piece: snug, but never forced.'),
+   'Six pieces that form a cube and only come apart in one order. Tolerances are tuned by hand, piece by piece: snug, but never forced.'),
 
   ('fichas-chakana', (select id from categorias where slug='juegos'),
    'Fichas Chakana', 9.90, 'pla', '40 × 40 × 6 mm', '1 h 50 min',

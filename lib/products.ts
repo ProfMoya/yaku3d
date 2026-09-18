@@ -370,7 +370,7 @@ export const productos: Producto[] = [
     aptoExterior: false,
     descripcion: {
       es: "Seis piezas que encajan en un cubo y solo salen en un orden. Las tolerancias se ajustan a mano pieza por pieza: entra firme, pero sin forzar.",
-      en: "Six pieces that lock into a cube and only come apart in one order. Tolerances are tuned by hand, piece by piece: snug, but never forced.",
+      en: "Six pieces that form a cube and only come apart in one order. Tolerances are tuned by hand, piece by piece: snug, but never forced.",
     },
   },
   {

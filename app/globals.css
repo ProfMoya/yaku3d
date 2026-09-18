@@ -4,31 +4,38 @@
 @custom-variant dark (&:is(.dark *));
 
 :root {
-  /* Lumera Clean Brand Colors */
-  --ivory: #FAFAFA;
-  --warm-sand: #F5F5F5;
-  --sage: #E8E8E8;
-  --charcoal: #1A1A1A;
-  
-  --background: #FFFFFF;
-  --foreground: #1A1A1A;
+  /* Yaku3D — paleta de marca */
+  --yaku-black: #000000;
+  --yaku-violet: #6650F2;
+  --yaku-violet-deep: #503FBF;
+  --yaku-magenta: #DB17E8;
+  --yaku-cream: #F2ECEB;
+
+  /* Derivados: superficies y texto secundario sobre crema.
+     --yaku-muted llega a 4.87:1 sobre --yaku-cream, apto para texto chico. */
+  --yaku-cream-deep: #E6DEDC;
+  --yaku-line: #D8CFCD;
+  --yaku-muted: #6B6472;
+
+  --background: #F2ECEB;
+  --foreground: #000000;
   --card: #FFFFFF;
-  --card-foreground: #1A1A1A;
+  --card-foreground: #000000;
   --popover: #FFFFFF;
-  --popover-foreground: #1A1A1A;
-  --primary: #1A1A1A;
+  --popover-foreground: #000000;
+  --primary: #6650F2;
   --primary-foreground: #FFFFFF;
-  --secondary: #F5F5F5;
-  --secondary-foreground: #1A1A1A;
-  --muted: #F5F5F5;
-  --muted-foreground: #737373;
-  --accent: #F5F5F5;
-  --accent-foreground: #1A1A1A;
+  --secondary: #E6DEDC;
+  --secondary-foreground: #000000;
+  --muted: #E6DEDC;
+  --muted-foreground: #6B6472;
+  --accent: #DB17E8;
+  --accent-foreground: #000000;
   --destructive: #DC2626;
   --destructive-foreground: #FFFFFF;
-  --border: #E5E5E5;
-  --input: #E5E5E5;
-  --ring: #1A1A1A;
+  --border: #D8CFCD;
+  --input: #D8CFCD;
+  --ring: #6650F2;
   --radius: 9999px;
 
   /* Shadcn default colors not overridden by user's theme */
@@ -106,10 +113,14 @@
   --color-border: var(--border);
   --color-input: var(--input);
   --color-ring: var(--ring);
-  --color-ivory: var(--ivory);
-  --color-warm-sand: var(--warm-sand);
-  --color-sage: var(--sage);
-  --color-charcoal: var(--charcoal);
+  --color-yaku-black: var(--yaku-black);
+  --color-yaku-violet: var(--yaku-violet);
+  --color-yaku-violet-deep: var(--yaku-violet-deep);
+  --color-yaku-magenta: var(--yaku-magenta);
+  --color-yaku-cream: var(--yaku-cream);
+  --color-yaku-cream-deep: var(--yaku-cream-deep);
+  --color-yaku-line: var(--yaku-line);
+  --color-yaku-muted: var(--yaku-muted);
   --color-chart-1: var(--chart-1);
   --color-chart-2: var(--chart-2);
   --color-chart-3: var(--chart-3);
@@ -138,8 +149,8 @@
   }
   
   ::selection {
-    background-color: var(--sage);
-    color: var(--charcoal);
+    background-color: var(--yaku-magenta);
+    color: var(--yaku-black);
   }
 }
 
@@ -154,15 +165,15 @@ html {
 }
 
 ::-webkit-scrollbar-track {
-  background: var(--ivory);
+  background: var(--yaku-cream);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--warm-sand);
+  background: var(--yaku-line);
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--sage);
+  background: var(--yaku-violet);
 }
 
 /* Text reveal animation */

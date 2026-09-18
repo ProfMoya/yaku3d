@@ -17,37 +17,37 @@ export default function Home() {
     <main className="overflow-x-hidden">
       <Navigation />
 
-      {/* Section 1: Hero with CTA and image */}
+      {/* 1. Hero con video de marca y CTA */}
       <HeroSection />
 
-      {/* Section 2: New Arrivals products */}
+      {/* 2. Novedades */}
       <NewArrivalsSection />
 
-      {/* Section 3: Explore Shop with sidebar filters */}
+      {/* 3. Catálogo con filtros por categoría */}
       <FeaturedProductsSection />
 
-      {/* Section 4: Product Detail showcase */}
+      {/* 4. Ficha de producto destacado */}
       <ProductDetailSection />
 
-      {/* Section 5: Blog/Editorial article */}
+      {/* 5. Nota editorial: cómo nace una pieza */}
       <EditorialSection />
 
-      {/* Section 6: Product Features - Why Choose Lumera */}
+      {/* 6. Por qué Yaku3D */}
       <ProductFeaturesSection />
 
-      {/* Section 7: Bento Grid - Collections */}
+      {/* 7. Colecciones en grilla bento */}
       <BentoSection />
 
-      {/* Section 8: Lifestyle Gallery */}
+      {/* 8. El taller: piezas en uso */}
       <LifestyleGallerySection />
 
-      {/* Section 9: About Lumera */}
+      {/* 9. Sobre Yaku3D */}
       <AboutSection />
 
-      {/* Section 10: Customer testimonials */}
+      {/* 10. Testimonios */}
       <TestimonialsSection />
 
-      {/* Section 11: Newsletter signup */}
+      {/* 11. Newsletter */}
       <NewsletterSection />
 
       {/* Footer */}

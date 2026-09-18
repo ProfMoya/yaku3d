@@ -3,8 +3,11 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { Menu, X } from "lucide-react";
+import { useT } from "@/lib/i18n/context";
+import { LanguageToggle } from "@/components/language-toggle";
 
 export function Navigation() {
+  const t = useT();
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
@@ -12,26 +15,30 @@ export function Navigation() {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20);
     };
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   const navLinks = [
-    { href: "#shop", label: "Explore Our Shop" },
-    { href: "#features", label: "Why Choose Lumera" },
-    { href: "#lifestyle", label: "Moments of Calm" },
-    { href: "#testimonials", label: "Testimonials" },
+    { href: "#catalogo", label: t.nav.catalogo },
+    { href: "#porque", label: t.nav.porQue },
+    { href: "#taller", label: t.nav.taller },
+    { href: "#testimonios", label: t.nav.testimonios },
   ];
+
+  // Sobre el hero (video oscuro) la barra va en blanco; al scrollear se apoya
+  // sobre la crema y pasa a texto negro.
+  const sobreHero = !isScrolled && !mobileMenuOpen;
 
   return (
     <header className="fixed top-0 left-0 right-0 z-[100] pointer-events-none">
-      <nav 
+      <nav
         className={`max-w-5xl mx-auto mt-6 px-4 pointer-events-auto transition-all duration-500 ${
-          mobileMenuOpen ? "" : "rounded-full"
+          mobileMenuOpen ? "rounded-3xl" : "rounded-full"
         } ${
-          isScrolled 
-            ? "bg-white/80 backdrop-blur-xl shadow-lg shadow-black/5" 
-            : "bg-transparent"
+          sobreHero
+            ? "bg-transparent"
+            : "bg-[var(--yaku-cream)]/85 backdrop-blur-xl shadow-lg shadow-black/5"
         }`}
       >
         <div className="flex items-center justify-between h-14 px-2">
@@ -39,57 +46,69 @@ export function Navigation() {
           <Link
             href="#"
             className={`font-display text-2xl tracking-tight transition-colors duration-500 ${
-              isScrolled ? "text-[#1A1A1A]" : "text-white"
+              sobreHero ? "text-white" : "text-[var(--yaku-black)]"
             }`}
           >
-            Lumera
+            {/* Sobre el violeta del hero el magenta no se lee (1.33:1), así
+                que el "3D" solo toma color cuando la barra está sobre crema. */}
+            Yaku
+            <span
+              className={sobreHero ? "text-white/70" : "text-[var(--yaku-magenta)]"}
+            >
+              3D
+            </span>
           </Link>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-6">
             {navLinks.map((link) => (
               <Link
-                key={link.label}
+                key={link.href}
                 href={link.href}
                 className={`text-xs transition-colors duration-500 ${
-                  isScrolled 
-                    ? "text-[#1A1A1A] hover:text-[#737373]" 
-                    : "text-white hover:text-white/70"
+                  sobreHero
+                    ? "text-white hover:text-white/70"
+                    : "text-[var(--yaku-black)] hover:text-[var(--yaku-violet)]"
                 }`}
               >
                 {link.label}
               </Link>
             ))}
+            <LanguageToggle oscuro={sobreHero} />
           </div>
 
-          {/* Mobile Menu Button */}
-          <button
-            type="button"
-            className={`md:hidden p-2 rounded-full transition-colors duration-500 ${
-              isScrolled 
-                ? "hover:bg-[#F5F5F5] text-[#1A1A1A]" 
-                : "hover:bg-white/10 text-white"
-            }`}
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            aria-label="Menu"
-          >
-            {mobileMenuOpen ? (
-              <X className="w-5 h-5" />
-            ) : (
-              <Menu className="w-5 h-5" />
-            )}
-          </button>
+          {/* Mobile: idioma + menú */}
+          <div className="flex items-center gap-2 md:hidden">
+            <LanguageToggle oscuro={sobreHero} />
+            <button
+              type="button"
+              className={`p-2 rounded-full transition-colors duration-500 ${
+                sobreHero
+                  ? "hover:bg-white/10 text-white"
+                  : "hover:bg-[var(--yaku-cream-deep)] text-[var(--yaku-black)]"
+              }`}
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              aria-label={mobileMenuOpen ? t.nav.cerrarMenu : t.nav.abrirMenu}
+              aria-expanded={mobileMenuOpen}
+            >
+              {mobileMenuOpen ? (
+                <X className="w-5 h-5" />
+              ) : (
+                <Menu className="w-5 h-5" />
+              )}
+            </button>
+          </div>
         </div>
 
         {/* Mobile Menu */}
         {mobileMenuOpen && (
-          <div className="md:hidden py-8 border-t border-[#E5E5E5]/50 bg-white">
+          <div className="md:hidden py-8 border-t border-[var(--yaku-line)]">
             <div className="flex flex-col gap-6">
               {navLinks.map((link) => (
                 <Link
-                  key={link.label}
+                  key={link.href}
                   href={link.href}
-                  className="font-display text-3xl text-[#1A1A1A] hover:text-[#737373] transition-colors px-2"
+                  className="font-display text-3xl text-[var(--yaku-black)] hover:text-[var(--yaku-violet)] transition-colors px-2"
                   onClick={() => setMobileMenuOpen(false)}
                 >
                   {link.label}

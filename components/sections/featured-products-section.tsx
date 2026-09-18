@@ -1,151 +1,29 @@
 "use client";
 
 import { useState } from "react";
-import Image from "next/image";
 import Link from "next/link";
 import { useScrollReveal } from "@/hooks/use-scroll-reveal";
-
-const categories = ["All", "New Arrivals", "Best Sellers", "Serums", "Moisturizers", "Treatments"];
-
-const products = [
-  {
-    id: 1,
-    name: "DermaVerde Cream",
-    price: 89,
-    image: "/images/product-skincare-duo.jpg",
-    category: "Moisturizers",
-  },
-  {
-    id: 2,
-    name: "PureGlow Serum",
-    price: 129,
-    image: "/images/product-serum-set.jpg",
-    category: "Serums",
-  },
-  {
-    id: 3,
-    name: "Beauty Essentials Set",
-    price: 159,
-    image: "/images/product-gift-set.jpg",
-    category: "Best Sellers",
-  },
-  {
-    id: 4,
-    name: "Vitamin C Brightening Serum",
-    price: 95,
-    image: "/images/product-serum-set.jpg",
-    category: "Serums",
-  },
-  {
-    id: 5,
-    name: "Hyaluronic Hydrator",
-    price: 75,
-    image: "/images/product-skincare-duo.jpg",
-    category: "Moisturizers",
-  },
-  {
-    id: 6,
-    name: "Retinol Night Treatment",
-    price: 110,
-    image: "/images/product-serum-set.jpg",
-    category: "Treatments",
-  },
-  {
-    id: 7,
-    name: "Radiant Glow Duo",
-    price: 145,
-    image: "/images/product-skincare-duo.jpg",
-    category: "New Arrivals",
-  },
-  {
-    id: 8,
-    name: "Ceramide Repair Set",
-    price: 175,
-    image: "/images/product-gift-set.jpg",
-    category: "New Arrivals",
-  },
-  {
-    id: 9,
-    name: "Daily Defense SPF",
-    price: 68,
-    image: "/images/product-skincare-duo.jpg",
-    category: "Best Sellers",
-  },
-  {
-    id: 10,
-    name: "Niacinamide Essence",
-    price: 85,
-    image: "/images/product-serum-set.jpg",
-    category: "Serums",
-  },
-  {
-    id: 11,
-    name: "Rose Water Toner",
-    price: 52,
-    image: "/images/product-skincare-duo.jpg",
-    category: "Treatments",
-  },
-  {
-    id: 12,
-    name: "Collagen Boost Cream",
-    price: 98,
-    image: "/images/product-gift-set.jpg",
-    category: "Moisturizers",
-  },
-  {
-    id: 13,
-    name: "AHA/BHA Exfoliant",
-    price: 72,
-    image: "/images/product-serum-set.jpg",
-    category: "Treatments",
-  },
-  {
-    id: 14,
-    name: "Peptide Power Set",
-    price: 165,
-    image: "/images/product-gift-set.jpg",
-    category: "Best Sellers",
-  },
-  {
-    id: 15,
-    name: "Squalane Facial Oil",
-    price: 88,
-    image: "/images/product-serum-set.jpg",
-    category: "Serums",
-  },
-  {
-    id: 16,
-    name: "Eye Renewal Cream",
-    price: 79,
-    image: "/images/product-skincare-duo.jpg",
-    category: "Treatments",
-  },
-  {
-    id: 17,
-    name: "Barrier Repair Moisturizer",
-    price: 92,
-    image: "/images/product-skincare-duo.jpg",
-    category: "New Arrivals",
-  },
-  {
-    id: 18,
-    name: "Complete Routine Bundle",
-    price: 199,
-    image: "/images/product-gift-set.jpg",
-    category: "Best Sellers",
-  },
-];
+import { useI18n } from "@/lib/i18n/context";
+import { ProductMedia } from "@/components/product-placeholder";
+import { formatearPrecio } from "@/lib/format";
+import { filtros, productos, type FiltroId } from "@/lib/products";
 
 export function FeaturedProductsSection() {
-  const { ref, isVisible } = useScrollReveal({ threshold: 0.1 });
-  const [activeCategory, setActiveCategory] = useState("All");
+  const { ref, isVisible } = useScrollReveal<HTMLElement>({ threshold: 0.1 });
+  const { t, locale } = useI18n();
+  const [filtroActivo, setFiltroActivo] = useState<FiltroId>("todos");
 
-  const filteredProducts = activeCategory === "All" 
-    ? products 
-    : products.filter(p => p.category === activeCategory);
+  const visibles =
+    filtroActivo === "todos"
+      ? productos
+      : productos.filter((p) => p.categoria === filtroActivo);
 
   return (
-    <section id="shop" ref={ref} className="py-20 lg:py-32 bg-white">
+    <section
+      id="catalogo"
+      ref={ref}
+      className="py-20 lg:py-32 bg-[var(--yaku-cream)]"
+    >
       <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
         {/* Header */}
         <div
@@ -153,69 +31,69 @@ export function FeaturedProductsSection() {
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
           }`}
         >
-          <h2 className="font-display text-4xl sm:text-5xl lg:text-6xl text-[#1A1A1A] mb-4">
-            Explore Lumera Shop
+          <h2 className="font-display text-4xl sm:text-5xl lg:text-6xl text-[var(--yaku-black)] mb-4">
+            {t.catalogo.titulo}
           </h2>
-          <p className="text-[#737373] text-base font-body">
-            Discover our products made just for you.
+          <p className="text-[var(--yaku-muted)] text-base font-body">
+            {t.catalogo.bajada}
           </p>
         </div>
 
-        {/* Layout: Sidebar + Products */}
+        {/* Layout: filtros + grilla */}
         <div className="flex flex-col lg:flex-row gap-12">
-          {/* Sidebar Categories */}
+          {/* Filtros */}
           <div
             className={`lg:w-48 flex-shrink-0 lg:sticky lg:top-24 lg:self-start transition-all duration-700 delay-200 ${
               isVisible ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-8"
             }`}
           >
-            <div className="flex flex-row lg:flex-col gap-0 border-t border-[#E5E5E5]">
-              {categories.map((category) => (
-                <div key={category} className="border-b border-[#E5E5E5]">
-                  <button
-                    type="button"
-                    onClick={() => setActiveCategory(category)}
-                    className={`w-full text-left py-4 px-2 text-sm transition-colors font-body ${
-                      activeCategory === category
-                        ? "text-[#1A1A1A] font-medium"
-                        : "text-[#737373] hover:text-[#1A1A1A]"
-                    }`}
+            <div className="flex flex-row flex-wrap lg:flex-col gap-0 border-t border-[var(--yaku-line)]">
+              {filtros.map((filtro) => {
+                const activo = filtroActivo === filtro;
+                return (
+                  <div
+                    key={filtro}
+                    className="border-b border-[var(--yaku-line)] flex-1 lg:flex-none"
                   >
-                    {category}
-                  </button>
-                </div>
-              ))}
+                    <button
+                      type="button"
+                      onClick={() => setFiltroActivo(filtro)}
+                      aria-pressed={activo}
+                      className={`w-full text-left py-4 px-2 text-sm transition-colors font-body ${
+                        activo
+                          ? "text-[var(--yaku-violet)] font-medium"
+                          : "text-[var(--yaku-muted)] hover:text-[var(--yaku-black)]"
+                      }`}
+                    >
+                      {t.catalogo.categorias[filtro]}
+                    </button>
+                  </div>
+                );
+              })}
             </div>
           </div>
 
-          {/* Products Grid */}
+          {/* Grilla */}
           <div className="flex-1">
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-12">
-              {filteredProducts.map((product, index) => (
+              {visibles.map((producto, index) => (
                 <Link
-                  key={product.id}
+                  key={producto.id}
                   href="#"
                   className={`group transition-all duration-700 text-center ${
                     isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
                   }`}
-                  style={{ transitionDelay: `${300 + index * 100}ms` }}
+                  style={{ transitionDelay: `${300 + index * 60}ms` }}
                 >
-                  {/* Product Image */}
-                  <div className="aspect-[4/5] relative overflow-hidden bg-[#F5F5F5] mb-4">
-                    <Image
-                      src={product.image || "/placeholder.svg"}
-                      alt={product.name}
-                      fill
-                      className="object-cover transition-transform duration-500 group-hover:scale-105"
-                    />
+                  <div className="aspect-[4/5] relative overflow-hidden bg-[var(--yaku-cream-deep)] mb-4 rounded-2xl">
+                    <ProductMedia producto={producto} />
                   </div>
 
-                  {/* Product Info */}
-                  <h3 className="font-display text-lg text-[#1A1A1A] mb-1">
-                    {product.name}
+                  <h3 className="font-display text-lg text-[var(--yaku-black)] mb-1">
+                    {producto.nombre}
                   </h3>
-                  <p className="text-[#737373] text-sm font-body">
-                    USD ${product.price}
+                  <p className="text-[var(--yaku-muted)] text-sm font-body">
+                    {formatearPrecio(producto.precio, locale)}
                   </p>
                 </Link>
               ))}

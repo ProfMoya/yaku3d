@@ -2,25 +2,25 @@ import React from "react"
 import type { Metadata, Viewport } from 'next'
 import { Playfair_Display, Inter } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
+import { I18nProvider } from '@/lib/i18n/context'
 import './globals.css'
 
-const playfair = Playfair_Display({ 
+const playfair = Playfair_Display({
   subsets: ["latin"],
   weight: ['400', '500', '600', '700'],
   variable: '--font-display',
   style: ['normal', 'italic']
 });
 
-const inter = Inter({ 
+const inter = Inter({
   subsets: ["latin"],
   weight: ['300', '400', '500'],
   variable: '--font-body'
 });
 
 export const metadata: Metadata = {
-  title: 'Lumera — Modern Living Store',
-  description: 'Discover handpicked products made just for you. A curated space for calm, design, and everyday elegance.',
-  generator: 'v0.app',
+  title: 'Yaku3D — Impresión 3D de diseño propio',
+  description: 'Objetos funcionales, deco y piezas a medida, diseñados y fabricados en nuestro taller. Envíos a todo el país.',
   icons: {
     icon: [
       {
@@ -41,7 +41,7 @@ export const metadata: Metadata = {
 }
 
 export const viewport: Viewport = {
-  themeColor: '#FFFFFF',
+  themeColor: '#F2ECEB',
 }
 
 export default function RootLayout({
@@ -50,9 +50,10 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" className="scroll-smooth">
-      <body className={`${playfair.variable} ${inter.variable} font-body antialiased bg-white text-[#1E1E1E] overflow-x-hidden`}>
-        {children}
+    // `lang` arranca en español y el toggle ES/EN lo actualiza desde el cliente.
+    <html lang="es" className="scroll-smooth">
+      <body className={`${playfair.variable} ${inter.variable} font-body antialiased bg-[var(--yaku-cream)] text-[var(--yaku-black)] overflow-x-hidden`}>
+        <I18nProvider>{children}</I18nProvider>
         <Analytics />
       </body>
     </html>

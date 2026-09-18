@@ -1,123 +1,102 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
 import { useScrollReveal } from "@/hooks/use-scroll-reveal";
-import { Leaf, Ruler, Truck } from "lucide-react";
+import { useI18n } from "@/lib/i18n/context";
+import { ProductMedia, ProductPlaceholder } from "@/components/product-placeholder";
+import { formatearPrecio } from "@/lib/format";
+import { relacionados } from "@/lib/products";
+import { Layers, Ruler, Truck } from "lucide-react";
 
 export function ProductDetailSection() {
-  const { ref, isVisible } = useScrollReveal({ threshold: 0.1 });
+  const { ref, isVisible } = useScrollReveal<HTMLElement>({ threshold: 0.1 });
+  const { t, locale } = useI18n();
+
+  const bloques = [
+    { icono: Layers, ...t.detalle.bloques.ficha },
+    { icono: Ruler, ...t.detalle.bloques.medidas },
+    { icono: Truck, ...t.detalle.bloques.envio },
+  ];
 
   return (
-    <section ref={ref} className="py-20 lg:py-32 bg-white">
+    <section ref={ref} className="py-20 lg:py-32 bg-[var(--yaku-cream)]">
       <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
-        {/* Breadcrumb */}
-        
-
-        {/* Product Layout */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20">
-          {/* Product Image */}
+          {/* Imagen */}
           <div
             className={`transition-all duration-1000 delay-100 ${
               isVisible ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-8"
             }`}
           >
-            <div className="aspect-square relative overflow-hidden bg-[#F5F5F5]">
-              <video
-                src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/fe2bd907-240d-4240-a460-12464b027146_1-P8x2GoydHaS07jpWce2k4icyBqGd1a.mp4"
-                autoPlay
-                loop
-                muted
-                playsInline
-                className="w-full h-full object-cover"
-              />
+            <div className="aspect-square relative overflow-hidden bg-[var(--yaku-cream-deep)] rounded-3xl">
+              <ProductPlaceholder />
             </div>
           </div>
 
-          {/* Product Info */}
+          {/* Info */}
           <div
             className={`flex flex-col justify-center transition-all duration-700 delay-200 ${
               isVisible ? "opacity-100 translate-x-0" : "opacity-0 translate-x-8"
             }`}
           >
-            <h1 className="font-display text-4xl lg:text-5xl text-[#1A1A1A] mb-2">
-              DermaVerde
-            </h1>
-            <p className="text-xl text-[#1A1A1A] mb-6 font-body">
-              USD $329
+            <h2 className="font-display text-4xl lg:text-5xl text-[var(--yaku-black)] mb-2">
+              {t.detalle.nombre}
+            </h2>
+            <p className="text-xl text-[var(--yaku-violet)] mb-6 font-body">
+              {formatearPrecio(t.detalle.precio, locale)}
             </p>
 
-            <p className="text-[#737373] leading-relaxed mb-8 font-body">
-              A lightweight moisturizing cream that keeps your skin soft and hydrated all day.
+            <p className="text-[var(--yaku-muted)] leading-relaxed mb-8 font-body">
+              {t.detalle.descripcion}
             </p>
 
-            {/* Info Blocks - Side by Side */}
+            {/* Bloques informativos */}
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-8">
-              <div className="border border-[#E5E5E5] p-4 rounded-xs border-none px-4">
-                <Leaf className="w-8 h-8 mb-3 text-[#1A1A1A]" strokeWidth={1} />
-                <h3 className="text-sm font-medium text-[#1A1A1A] mb-2 font-body">Product Details</h3>
-                <p className="text-xs text-[#737373] leading-relaxed font-body">
-                  Natural ingredients, dermatologically tested.
-                </p>
-              </div>
-              <div className="border border-[#E5E5E5] p-4 rounded-xs border-none px-4">
-                <Ruler className="w-8 h-8 mb-3 text-[#1A1A1A]" strokeWidth={1} />
-                <h3 className="text-sm font-medium text-[#1A1A1A] mb-2 font-body">Size</h3>
-                <p className="text-xs text-[#737373] leading-relaxed font-body">
-                  30ml, 50ml, and 100ml. Sustainable glass packaging.
-                </p>
-              </div>
-              <div className="border border-[#E5E5E5] p-4 rounded-xs border-none px-4">
-                <Truck className="w-8 h-8 mb-3 text-[#1A1A1A]" strokeWidth={1} />
-                <h3 className="text-sm font-medium text-[#1A1A1A] mb-2 font-body">Shipping</h3>
-                <p className="text-xs text-[#737373] leading-relaxed font-body">
-                  Free over $100. 3-5 days delivery. 30-day returns.
-                </p>
-              </div>
+              {bloques.map((bloque) => {
+                const Icono = bloque.icono;
+                return (
+                  <div key={bloque.titulo} className="px-4">
+                    <Icono
+                      className="w-8 h-8 mb-3 text-[var(--yaku-violet)]"
+                      strokeWidth={1}
+                    />
+                    <h3 className="text-sm font-medium text-[var(--yaku-black)] mb-2 font-body">
+                      {bloque.titulo}
+                    </h3>
+                    <p className="text-xs text-[var(--yaku-muted)] leading-relaxed font-body">
+                      {bloque.texto}
+                    </p>
+                  </div>
+                );
+              })}
             </div>
 
-            {/* Buy Button */}
             <button
               type="button"
-              className="w-full bg-[#1A1A1A] text-white py-4 rounded-full text-sm font-medium hover:bg-[#333] transition-colors"
+              className="w-full bg-[var(--yaku-violet)] text-white py-4 rounded-full text-sm font-medium hover:bg-[var(--yaku-violet-deep)] transition-colors"
             >
-              Buy now
+              {t.detalle.cta}
             </button>
           </div>
         </div>
 
-        {/* Browse More Section */}
+        {/* Relacionados */}
         <div
           className={`mt-24 transition-all duration-700 delay-400 ${
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
           }`}
         >
-          
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
-            {[
-              { name: "PureGlow Lotion", price: 499, image: "/images/product-serum-set.jpg" },
-              { name: "Beauty Set", price: 399, image: "/images/product-gift-set.jpg" },
-              { name: "Hydra Mist", price: 189, image: "/images/product-skincare-duo.jpg" },
-            ].map((product, index) => (
-              <Link
-                key={product.name}
-                href="#"
-                className="group text-center"
-                style={{ transitionDelay: `${500 + index * 100}ms` }}
-              >
-                <div className="aspect-[4/5] relative overflow-hidden bg-[#F5F5F5] mb-4">
-                  <Image
-                    src={product.image || "/placeholder.svg"}
-                    alt={product.name}
-                    fill
-                    className="object-cover transition-transform duration-500 group-hover:scale-105"
-                  />
+            {relacionados.map((producto) => (
+              <Link key={producto.id} href="#catalogo" className="group text-center">
+                <div className="aspect-[4/5] relative overflow-hidden bg-[var(--yaku-cream-deep)] mb-4 rounded-2xl">
+                  <ProductMedia producto={producto} />
                 </div>
-                <h4 className="font-display text-lg text-[#1A1A1A] mb-1">
-                  {product.name}
+                <h4 className="font-display text-lg text-[var(--yaku-black)] mb-1">
+                  {producto.nombre}
                 </h4>
-                <p className="text-[#737373] text-sm font-body">
-                  USD ${product.price}
+                <p className="text-[var(--yaku-muted)] text-sm font-body">
+                  {formatearPrecio(producto.precio, locale)}
                 </p>
               </Link>
             ))}
